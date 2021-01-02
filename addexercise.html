@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <title>Exercise add</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+            <p>
+                <span id="header1"> SwimmingTG </span>
+                <span id="header2"> Build exercise </span>
+            </p>
+        </header>
+
+        <form id = "firstDivide">
+            <div id="checkboxchoice">
+                <select name = "dropdown" class = "step">
+                    <option value = "Worm up" selected>Worm up</option>
+                    <option value = "Main exercise">Main exercise</option>
+                    <option value = "Worm down">Worm down</option>
+                </select>
+
+                <select name = "dropdown" class = "Level">
+                    <option value = "Easy" selected>Easy</option>
+                    <option value = "Medium">Medium</option>
+                    <option value = "Hard">Hard</option>
+                </select>
+
+                <select name = "dropdown" class = "Break">
+                    <option value = "Easy" selected>Easy</option>
+                    <option value = "Medium">Medium</option>
+                    <option value = "Hard">Hard</option>
+                </select>
+            </div>
+
+            <section>
+                <div>
+                    <span>Select sets</span>
+                    <br />
+                    <lable>1 x<input type="radio"></lable>
+                    <lable>2 x<input type="radio"></lable>
+                    <lable>3 x<input type="radio"></lable>
+                    <lable>4 x<input type="radio"></lable>
+                    <lable>5 x<input type="radio"></lable>
+                </div>
+                    
+                <div>
+                    <span>Select distance</span>
+                    <br />
+                    <lable>25 m<input type="radio"></lable>
+                    <lable>50 m<input type="radio"></lable>
+                    <lable>100 m<input type="radio"></lable>
+                    <lable>200 m<input type="radio"></lable>
+                    <lable>400 m<input type="radio"></lable>
+                </div>
+                
+                <div>
+                    <span>Select stroke</span>
+                    <br />
+                    <lable>Freestyle<input type="checkbox"></lable>
+                    <lable>Backstroke<input type="checkbox"></lable>
+                    <lable>Breaststroke<input type="checkbox"></lable>
+                    <lable>Butterfly<input type="checkbox"></lable>
+                </div>
+            </section>
+
+            <section>
+                <div>
+                    <span>Details</span>
+                    <br />
+                    <textarea rows = "3" cols = "20" name = "description"></textarea>
+                </div>
+
+                <div>
+                    <span>Additional equipment</span>
+                    <br />
+                    <lable>Kickboard<input type="checkbox"></lable>
+                    <lable>Pull buoys<input type="checkbox"></lable>
+                    <lable>Fins<input type="checkbox"></lable>            
+                    <lable>Hand paddles<input type="checkbox"></lable>            
+                </div>
+            </section>
+
+            <div>
+                <input type = "submit" name = "submit" value = "Done" />
+                <input type = "reset" name = "reset"  value = "Reset" />
+            </div>
+        </form>
+        <footer></footer>
+    </div>
+</body>
+
+</html>
+
+<!--  -->
