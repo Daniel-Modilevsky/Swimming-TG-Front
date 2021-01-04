@@ -1,0 +1,268 @@
+/*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
+body {
+    font-family: "Open Sans", sans-serif;
+    color: #272829;
+}
+
+a {
+    color: #149ddd;
+}
+
+a:hover {
+    color: #37b3ed;
+    text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Raleway", sans-serif;
+}
+
+/*--------------------------------------------------------------
+# Login / Register / Index
+--------------------------------------------------------------*/
+#container-fullimg {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    display: flex;
+    margin: 0 auto;
+    background:url(../img/background-4.jpg);
+}
+
+    #container-fullimg .h-container {
+        display: block;
+        flex-direction: column;
+        text-align: center;
+        margin: 15vh auto;
+        background-color: aliceblue;
+        padding: 2%;
+        border-radius: 30px;
+    }
+
+#container-fullimg .h-logo {
+    margin-bottom: 30px;
+}
+
+.logo-t {
+    height:100px;
+    width:150px;
+}
+
+#container-fullimg h1 {
+    margin: 0 0 30px 0;
+    font-size: 38px;
+    font-weight: 500;
+    line-height: 56px;
+    color: #333;
+}
+
+#container-fullimg h2 {
+    color: #aeaeae;
+    margin-bottom: 30px;
+    font-size: 14px;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+#container-fullimg .center-inline-conteiner {
+    display: inline-block;
+}
+
+#container-fullimg .btn-get-started {
+    font-family: "Montserrat", sans-serif;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 16px;
+    letter-spacing: 1px;
+    display: inline-block;
+    padding: 14px 30px;
+    border-radius: 3px;
+    transition: 0.5s;
+    margin: 5px;
+    width: 45%;
+}
+
+.btn-1 {
+    color: aliceblue;
+    background-color: #1da1f2;
+    border-radius: 50px;
+}
+
+.btn-2 {
+    color: #1da1f2;
+    background-color: aliceblue;
+    border:solid 1px #1da1f2;
+    border-radius: 50px;
+}
+
+
+#container-fullimg .btn-1:hover {
+    background-color: #1a91da;
+    color: aliceblue;
+}
+#container-fullimg .btn-2:hover {
+    background-color: #e8fafe;
+    color: cornflowerblue;
+}
+
+@media (min-width: 1024px) {
+    #container-fullimg {
+        background-attachment: fixed;
+    }
+}
+
+@media (max-width: 768px) {
+    #container-fullimg h1 {
+        font-size: 28px;
+        line-height: 36px;
+    }
+
+    #container-fullimg h2 {
+        line-height: 22px;
+    }
+
+}
+
+#container-img {
+    display: flex;
+    width: 100%;
+    background-image: url(../img/background-4.jpg);
+    position: fixed;
+}
+
+.container-login-reg {
+    margin: 10vh auto;
+    width: 34%;
+    background-color:aliceblue;
+    border-radius:30px;
+    height: 70%;
+}
+
+
+@media (max-width:590px) and (min-width: 400px) {
+    #container-img .container-login-reg {
+        margin-top: 10vh;
+        margin-left: 20px;
+        position: fixed;
+    }
+}
+
+
+@media (max-width:769px) and (min-width: 590px) {
+    #container-img .container-login-reg {
+        margin-top: 20vh;
+        margin-left: 17.5vh;
+        position: fixed;
+    }
+}
+
+
+#register-form,
+#login-form {
+    /*background-image: linear-gradient(-45deg, cornflowerblue, darkblue);
+    border: 1px solid black;*/
+    color: #1da1f2;
+    padding: 1%;
+    display: block;
+    position: fixed;
+    /*background-color: dimgrey;
+    border-radius: 20px;*/
+}
+
+#register-form h1,
+#login-form h1 {
+    color:darkblue;
+    font-weight: bold;
+}
+
+
+/*===========================================
+round 2
+/*===========================================*/
+/*-------utl-form-------*/
+
+
+#form-url {
+    margin: 15vh auto;
+    color: gray;
+    background-color: whitesmoke;
+    width: 50%;
+    padding: 10px;
+}
+
+#form-url h2 {
+    color: darkblue;
+}
+
+#form-url u-form {
+    margin: 0 auto;
+    color: gray;
+    background-color: darkseagreen;
+}
+
+
+@media (max-width:769px) and (min-width: 400px) {
+    #form-url {
+        width: 75%;
+    }
+
+    .form-check {
+        margin-bottom: 20px;
+    }
+
+    .form-check-input {
+        position: relative;
+        float: left;
+    }
+
+    .form-check-label {
+        float: left;
+    }
+
+    .form-group .label-name {
+        float: left;
+    }
+}
+
+.form-check {}
+
+.private {}
+
+
+/*========================================
+FORM
+=========================================*/
+.form-crud {
+    display: block;
+    text-align: center;
+    background-color: aliceblue;
+    margin: 5%;
+    padding: 2%;
+    border-radius: 30px;
+    width: 50%;
+    height: 70%;
+}
+
+.form-crud input[type="file"] {
+    color: #1da1f2;
+    background-color: red;
+    border: solid 1px #1da1f2;
+    text-align: center;
+    width: 20%;
+}
+
+
+header h3{
+    padding-top:20px;
+    text-align:center;
+}
+
+
+

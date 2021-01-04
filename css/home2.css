@@ -1,0 +1,611 @@
+/*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
+body {
+    font-family: "Open Sans", sans-serif;
+    color: #272829;
+    background-color: black;
+}
+a {
+    color: #149ddd;
+}
+
+a:hover {
+    color: #37b3ed;
+    text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Raleway", sans-serif;
+}
+
+/*--------------------------------------------------------------
+# Layouts
+--------------------------------------------------------------*/
+#aside-nav{
+	display: block;
+	position: fixed;
+	width: 11%;
+	height: 100%;
+	top:0;
+	background-color:white;
+}
+
+#aside-nav {
+    transition: all ease-in-out 0.5s;
+    z-index: 9997;
+    padding: 0 15px;
+    overflow-y: auto;
+}
+#aside-nav {
+	border-right: 0.5px solid gray;
+	width: 16%;
+	font-weight: bold;
+}
+
+main{
+	display: block;
+    position: relative;
+	left: 16%;
+	width: 84%;
+	height: 100%;
+    background-color: black;
+}
+
+/*--------------------------------------------------------------
+# Empty Left + right
+--------------------------------------------------------------*/
+#aside-nav {
+	left: 0;
+}
+
+/*--------------------------------------------------------------
+# Nav-Bar Left
+--------------------------------------------------------------*/
+
+#aside-nav{
+    background-color: #093B68;
+
+}
+#aside-nav .search-links img {
+    margin: 15px 15px;
+    display: block;
+    width: 80%;
+    height: 80px;
+}
+    
+#aside-nav .search-links .social-links a {
+    font-size: 18px;
+    display: inline-block;
+    background: #212431;
+    line-height: 1;
+    padding: 8px 0;
+    margin-right: 4px;
+    border-radius: 50%;
+    text-align: center;
+    width: 36px;
+    height: 36px;
+    transition: 0.3s;
+}
+
+
+#aside-nav .search-links .social-links a:hover {
+    background: #149ddd;
+    text-decoration: none;
+}
+
+#main {
+    margin-left: 250px;
+    background-color: #333;
+    display: block;
+    height: 100vh;
+}
+
+@media (max-width: 1199px) {
+    #aside-nav {
+        left: -300px;
+    }
+
+    #main {
+        margin-left: 0;
+    }
+}
+
+#mini-profile {
+	margin-top:30%;
+    height: 50px;
+    width: 97%;
+    display: block;
+    border-radius: 30px;
+    bottom: 15px;
+    padding-top: 10px;
+    
+}
+    #mini-profile img {
+        height: 30px;
+        width: 30px;
+        border-radius: 20px;
+        display: inline-block;
+        float: left;
+        margin-left: 10px;
+    }
+    #mini-profile h4 {
+        font-size: 16px;
+        text-align: center;
+        display: inline;
+        margin-left: 10px;
+        color:burlywood;
+    }
+    #mini-profile i {
+        font-size: 25px;
+        display: block;
+        float: right;
+        margin-right: 10px;
+    }
+
+
+.nav-footer {
+	display:block;
+    color: #777;
+    font-size: 13px;
+	width:100%;
+	margin-top: 10%;
+}
+.nav-footer ul{
+    display:inline-block;
+}
+    .nav-footer ul li{
+        display: inline-block;
+        list-style:none;
+    }
+        .nav-footer ul li a {
+            color: #777;
+        }
+        .nav-footer ul li a:hover{
+            text-decoration:none;
+			color:#149ddd;
+			transition: 0.4s;
+        }
+
+
+
+
+/*--------------------------------------------------------------
+# Navigation Menu
+--------------------------------------------------------------*/
+.nav-menu {
+    padding-top: 30px;
+}
+
+.nav-menu * {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.nav-menu > ul > li {
+    position: relative;
+    white-space: nowrap;
+}
+
+.nav-menu a {
+    display: flex;
+    align-items: center;
+    color: #DBEFFF;
+    padding: 12px 15px;
+    margin-bottom: 8px;
+    transition: 0.3s;
+    font-size: 15px;
+}
+
+.nav-menu a i {
+    font-size: 24px;
+    padding-right: 8px;
+    color: #DBEFFF;
+}
+
+.nav-menu a:hover,
+.nav-menu .active > a,
+.nav-menu li:hover > a {
+    text-decoration: none;
+    color: #D27E7E;
+}
+
+.nav-menu a:hover i,
+.nav-menu .active > a i,
+.nav-menu li:hover > a i {
+    color: #D27E7E;
+}
+
+/* Mobile Navigation */
+.mobile-nav-toggle {
+    position: fixed;
+    right: 15px;
+    top: 15px;
+    z-index: 9998;
+    border: 0;
+    background: none;
+    font-size: 24px;
+    transition: all 0.4s;
+    outline: none !important;
+    line-height: 1;
+    cursor: pointer;
+    text-align: right;
+}
+
+.mobile-nav-toggle i {
+    color: #D27E7E;
+}
+
+.mobile-nav-active {
+    overflow: hidden;
+}
+
+.mobile-nav-active #aside-nav {
+    left: 0;
+}
+
+.mobile-nav-active .mobile-nav-toggle i {
+    color: #fff;
+}
+
+
+/*--------------------------------------------------------------
+# Main Center
+--------------------------------------------------------------*/
+main  header{
+	display: inline-block;
+	border-bottom: 0.5px solid gray;
+	background-color: black;
+	width:100%;
+	height: 7.5%;
+    color: #1da1f2;
+	padding: 1%;
+}
+
+main header h1{
+	float: left;
+	left: 0;
+	display:inline-block;
+	font-size: 20px;
+	font-weight: bold;
+}
+main header form{
+    float: right;
+	right: 0;
+    display: inline-flex;
+}
+header form .search-bar {
+    color: rgba(110,127,141,1);
+}
+header form .search-button {
+    
+}
+
+ 
+#our-recomandation{
+    display: block;
+    width: 100%;
+    height: 650px;
+    background-color: antiquewhite;
+    border-bottom: 1px solid gray;
+}
+
+#our-recomandation img{
+    width: 100%;
+    height: 100%;
+    flex-grow: 1;
+}
+
+ 
+ 
+/*--------------------------------------------------------------
+# Home page - Pid
+--------------------------------------------------------------*/
+
+.img-popular-big:hover{
+    cursor: pointer;
+}
+
+ #pid,  #pid2{
+    background-color: black;
+	margin-top: 0%;
+	height:100%;
+	padding:1%;
+ }
+ 
+
+ /*--------------------------------------------------------------
+# List - Movies
+--------------------------------------------------------------*/
+.movies-list{
+    display: block;
+	width: 100%;
+    height: 180px;
+    padding-top: 1%;
+}
+.movies-list h4{
+    font-weight: bold;
+    margin-left: 1%;
+    color: #D27E7E;
+}
+.movies-list article{
+	display: inline-block;
+	margin-left: 0.5%;
+    margin-top: 1%;
+	border: 1px solid gray;
+ }
+.movies-list article:hover{
+     cursor:pointer;
+}
+.movies-list article img{
+	 display: block;
+}
+
+
+ /*--------------------------------------------------------------
+# Movie - Page
+--------------------------------------------------------------*/
+
+#movie{
+    display: block;
+	/*position: relative;*/
+    width: 80%;
+    margin-left: 5%;
+    border-bottom: 1px solid gray;
+    padding: 1%;
+    height: 40%;
+    font-size: 16px;
+}
+#movie img{
+    display: block;
+    height: 35%;
+    width: 100%;
+    border: 1px solid gray;
+}
+#movie-details{
+    margin-top:2%;
+    background-color: black;
+    color:white;
+}
+#movie-details .movie-right{
+    display: inline-block;
+	position: absolute;
+    width: 50%;
+} 
+
+#movie-details .movie-left{
+    display: inline-block;
+	position: relative;
+    margin-left:0%;
+    width: 49%;
+} 
+#movie-details ul li{
+   list-style: none;
+}
+#movie-details label{
+   font-weight: bold;
+   color: #666;
+   font-size: 18px;
+}
+#movie-details p{
+    display: block;
+    /*position: relative;*/
+    width: 100%;
+    height: 5%;
+    margin-left: 4%;
+}
+#movie-details p label{
+    color: #D27E7E;
+}
+
+
+
+
+/*--------------------------------------------------------------
+# Movie - Comments
+--------------------------------------------------------------*/
+
+ #pid .pid-comment ,  #pid2 .pid-comment{
+	 display: block;
+	 margin-top: 1%;
+     margin-left: 5%;
+	 border: 0.5px solid gray;
+	 background-color:aliceblue;
+     width: 80%;
+ }
+ 
+ .pid-comment .article-body{
+	width: 80%;
+	display: flex;
+	height: 75%;
+ }
+ 
+ .pid-comment .article-body img{
+	height: 50px;
+	width: 50px;
+	border-radius: 20px;
+	display: inline-block;
+	float: left;
+	margin-left: 1%;
+	margin-top: 2%;
+ }
+ .pid-comment .article-body label{
+	display: inline-block;
+	margin-left: 1%;
+	margin-top: 2%;
+    font-size: 18px;
+     font-weight: bold;
+     color:#333;
+ }
+ .pid-comment .article-body p{
+	height: 70%;
+	width: 87%;
+	display: inline-block;
+	font-size:14px;
+	margin-left: 2%;
+	margin-top: 2%;
+	border: none;
+ }
+.pid-comment .article-footer {
+	width: 93%;
+	height: 25%;
+	display:flex;
+ }
+  .article-footer ul{
+	display:block;
+	width:100%;
+  }
+  
+  .article-footer ul li{
+	display:inline-block;
+	list-style:none;
+	margin-top:0.5%;
+  }
+  .article-footer ul li:hover{
+	color: #1da1f2;
+	cursor: pointer;
+  }
+  
+ .icon-left{
+	float: left;
+	margin-left: 2%;
+ }
+  .icon-right{
+	float: right;
+	margin-right: 4%;
+ }
+ 
+ .article-footer ul li i{
+	display:inline-block;
+ }
+
+
+/*--------------------------------------------------------------
+# Recomandations - Pid
+--------------------------------------------------------------*/
+#recommend-pid {
+    display: block;
+    width:86%;
+    margin-left: 5%;
+}
+#recommend-pid article{
+    width:100%;
+    display: flex;
+    border: 1px solid gray;
+    margin-bottom: 0.5%;
+}
+
+#recommend-pid article aside {
+    width: 65%;
+    left:0%;
+    border-right: 1px solid gray;
+  
+}
+#recommend-pid article aside img {
+    width: 100%;
+    height: 400px;
+}
+#recommend-pid article nav {
+    padding-top: 2%;
+    width:35%;
+    background-color: beige;
+    right: 0%;
+    padding-right: 1%;
+}
+#recommend-pid article nav ul {
+    list-style: none;
+}
+
+#recommend-pid article nav ul li label{
+    display: inline-block;
+	margin-top: 2%;
+    font-size: 18px;
+    font-weight: bold;
+    color:#666;
+}
+
+#recommend-pid article nav ul li span{
+    list-style: none;
+    font-size: 15px;
+}
+
+#recommend-pid article nav ul li .movie-name{
+    color: #D27E7E;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+
+
+/*--------------------------------------------------------------
+# New Excercise
+--------------------------------------------------------------*/
+#firstDivide{
+    display: block;
+    width: 80%;
+    margin-left: 10%;
+    background-color:darkcyan;
+}
+
+
+/*--------------------------------------------------------------
+# Excercise
+--------------------------------------------------------------*/
+.exer{
+    display: flex;
+    width:70%;
+    margin-top: 2%;
+    margin-left: 15%;
+    background-color: whitesmoke;
+    border: 1px solid gray;
+}
+
+.exer:hover{
+    background-color:#093B68;
+    transition: 0.4s;
+    color:white;
+    cursor: pointer;
+}
+.exer:hover label{
+    color:antiquewhite;
+}
+.exer .left-excer{
+    display: block;
+    width: 25%;
+    display: inline-block;
+}
+.exer .midle-excer{
+    display: block;
+    width: 50%;
+    display: inline-block;
+}
+.exer .right-excer{
+    display: block;
+    width: 25%;
+    display: inline-block;
+}
+.exer aside label{
+    margin-left: 3%;
+    font-weight: bold;
+    color:#444;
+}
+.exer .right-excer img{
+    margin-right: 15%;
+}
+.head-excer{
+    font-size: 20px;
+    color:#D27E7E;
+}
+
+/*--------------------------------------------------------------
+# Top Rated
+--------------------------------------------------------------*/
+
+
+

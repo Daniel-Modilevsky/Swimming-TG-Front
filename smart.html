@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title> Smart Search </title>
+    <meta content="" name="descriptison">
+    <meta content="" name="keywords">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="css/hover.css" rel="stylesheet">
+
+    
+
+
+    <link href="css/home2.css" rel="stylesheet">
+</head>
+
+<body>
+    <nav id="aside-nav">
+        <div class="d-flex flex-column">
+            <div class="search-links">
+                <img src="img/logo.png">
+            </div>
+
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="home.html"><i class="bx bx-home selected"></i> Home</a></li>
+                    <li><a href="history.html"><i class="bx bx-user"></i> Profile</a></li>
+                    <li><a href="workoutshow.html"><i class="bx bx-swim"></i> Train Builder</a></li>
+                    <li><a href="addexercise.html"><i class="bx bx-duplicate"></i> Excercise Builder</a></li>
+                    <li><a href="random.html"><i class="bx bx-loader-circle"></i> Random Train</a></li>
+                    <li><a href="smart.html"><i class="bx bx-detail"></i> Lists</a></li>
+                    <li><a href="index.html"><i class="bx bx-dots-horizontal-rounded"></i> Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div id="mini-profile">
+            <img src="img/profile-demo.png">
+                <h4 id = "userName" class="text-light"> </h4>       
+        </div>
+        <nav class="nav-footer">
+            <ul>
+                <li><a href="#"> Privacy Policy </a></li>
+                <li> © 2020 Daniel Modilevsky,<br> Anar Djafarov</li>
+            </ul>
+        </nav>
+    </nav>
+    
+    <main data-aos="fade-up">
+        <header>
+            <h1>Smart Search</h1>
+        </header>
+        <form id = "firstDivide">
+            <div class="form-group">
+                <div id="checkboxchoice">
+                    <label>Step</label>
+                    <select name = "dropdown" class="form-control step">
+                        <option value = "Worm up" selected class="form-control">Worm up</option>
+                        <option value = "Main Set">Main Set</option>
+                        <option value = "Swim down">Swim down</option>
+                        <option value = "Race">Race</option>
+                    </select>
+                    
+                    <label>Tempo</label>
+                    <select name = "dropdown" class = "form-control Level">
+                        <option value = "Easy" selected>Easy</option>
+                        <option value = "Medium">Medium</option>
+                        <option value = "Hard">Hard</option>
+                    </select>
+                    
+                    <label>Break</label>
+                    <select name = "dropdown" class="form-control Break">
+                        <option value = "10" selected>10</option>
+                        <option value = "15">15</option>
+                        <option value = "20">20</option>
+                        <option value = "30">30</option>
+                        <option value = "45">45</option>
+                        <option value = "60">60</option>
+                    </select>
+                </div>
+
+                <section>
+                    <div>
+                        <label>Select sets</label>
+                        <br />
+                        <lable>1 x<input type="radio" class="form-check-input" name="exampleRadios"></lable>
+                        <lable>2 x<input type="radio" class="form-check-input" name="exampleRadios"></lable>
+                        <lable>3 x<input type="radio" class="form-check-input" name="exampleRadios"></lable>
+                        <lable>4 x<input type="radio" class="form-check-input" name="exampleRadios"></lable>
+                        <lable>5 x<input type="radio" class="form-check-input" name="exampleRadios"></lable>
+                    </div>
+
+                    <div>
+                        <span>Select distance</span>
+                        <br />
+                        <lable>25 m<input type="radio"></lable>
+                        <lable>50 m<input type="radio"></lable>
+                        <lable>100 m<input type="radio"></lable>
+                        <lable>200 m<input type="radio"></lable>
+                        <lable>400 m<input type="radio"></lable>
+                    </div>
+
+                    <div>
+                        <span>Select stroke</span>
+                        <br />
+                        <lable>Freestyle<input type="checkbox"></lable>
+                        <lable>Backstroke<input type="checkbox"></lable>
+                        <lable>Breaststroke<input type="checkbox"></lable>
+                        <lable>Butterfly<input type="checkbox"></lable>
+                    </div>
+                </section>
+
+                <section>
+                    <div>
+                        <span>Details</span>
+                        <br />
+                        <textarea rows = "3" cols = "20" name = "description"></textarea>
+                    </div>
+
+                    <div>
+                        <span>Additional equipment</span>
+                        <br />
+                        <lable>Kickboard<input type="checkbox"></lable>
+                        <lable>Pull buoys<input type="checkbox"></lable>
+                        <lable>Fins<input type="checkbox"></lable>            
+                        <lable>Hand paddles<input type="checkbox"></lable>            
+                    </div>
+                </section>
+
+                <div>
+                    <input type = "submit" name = "submit" value = "Done" />
+                    <input type = "reset" name = "reset"  value = "Reset" />
+                </div>
+            </div>
+        </form>        
+    </main>
+    
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/boxicons@latest/dist/boxicons.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/venobox/1.9.0/venobox.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="js/clientServer.js"></script>
+    <script> AOS.init();  </script>
+     <script>
+        Parseusername();
+    </script> 
+</body>
+</html>

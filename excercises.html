@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title> Smart Search </title>
+    <meta content="" name="descriptison">
+    <meta content="" name="keywords">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="css/hover.css" rel="stylesheet">
+
+    
+
+
+    <link href="css/home2.css" rel="stylesheet">
+</head>
+
+<body>
+    <nav id="aside-nav">
+        <div class="d-flex flex-column">
+            <div class="search-links">
+                <img src="img/logo.png">
+            </div>
+
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="home.html"><i class="bx bx-home selected"></i> Home</a></li>
+                    <li><a href="history.html"><i class="bx bx-user"></i> Profile</a></li>
+                    <li><a href="workoutshow.html"><i class="bx bx-swim"></i> Train Builder</a></li>
+                    <li><a href="addexercise.html"><i class="bx bx-duplicate"></i> Excercise Builder</a></li>
+                    <li><a href="random.html"><i class="bx bx-loader-circle"></i> Random Train</a></li>
+                    <li><a href="smart.html"><i class="bx bx-detail"></i> Lists</a></li>
+                    <li><a href="index.html"><i class="bx bx-dots-horizontal-rounded"></i> Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div id="mini-profile">
+            <img src="img/profile-demo.png">
+                <h4 id = "userName" class="text-light"> </h4>       
+        </div>
+        <nav class="nav-footer">
+            <ul>
+                <li><a href="#"> Privacy Policy </a></li>
+                <li> © 2020 Daniel Modilevsky,<br> Anar Djafarov</li>
+            </ul>
+        </nav>
+    </nav>
+    
+    <main data-aos="fade-up">
+        <header>
+            <h1>Smart Search</h1>
+        </header>
+       <div id="pid-excercise">
+           <article class="exer">
+               <aside class="left-excer">
+                    <label class="head-excer">Step</label> : <span>Worm Up</span><br>
+                    <label>Level</label> : <span>Easy</span><br>
+                    <label>Break</label> : <span>30s</span>
+               </aside>
+               <aside class="midle-excer">
+                   <label>Mount</label> : <span>2 x 200</span><br>
+                   <label>Style</label> : <span>Freestyle, Mix</span><br>  
+                   <label>Details:</label> : <span>Only hands first 200, only lags seconed</span>
+               </aside>
+               <aside class="right-excer">
+                   <img src="https://img.icons8.com/fluent/40/000000/buoyancy-compensator.png"/>
+                   <img src="https://img.icons8.com/officel/40/000000/flippers.png"/><br>
+                   <img src="https://img.icons8.com/ultraviolet/40/000000/float.png"/> 
+                   <img src="https://img.icons8.com/wired/40/4a90e2/hand.png"/>
+               </aside>
+           </article>
+       </div>
+    </main>
+    
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/boxicons@latest/dist/boxicons.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/venobox/1.9.0/venobox.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="js/clientServer.js"></script>
+    <script> AOS.init();  </script>
+     <script>
+        Parseusername();
+        showExcercises();
+    </script> 
+</body>
+</html>
