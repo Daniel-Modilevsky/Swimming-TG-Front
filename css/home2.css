@@ -117,7 +117,7 @@ main{
 }
 
 #mini-profile {
-	margin-top:30%;
+	margin-top:15%;
     height: 50px;
     width: 97%;
     display: block;
@@ -154,9 +154,10 @@ main{
     color: #777;
     font-size: 13px;
 	width:100%;
-	margin-top: 10%;
+	margin-top: 5%;
 }
 .nav-footer ul{
+    margin-left: 0;
     display:inline-block;
 }
     .nav-footer ul li{
@@ -165,6 +166,7 @@ main{
     }
         .nav-footer ul li a {
             color: #777;
+            text-decoration: none;
         }
         .nav-footer ul li a:hover{
             text-decoration:none;
@@ -214,6 +216,12 @@ main{
 .nav-menu li:hover > a {
     text-decoration: none;
     color: #D27E7E;
+}
+
+.nav-menu a,
+.nav-menu .active > a,
+.nav-menu li > a {
+    text-decoration: none;
 }
 
 .nav-menu a:hover i,
@@ -604,8 +612,151 @@ header form .search-button {
 }
 
 /*--------------------------------------------------------------
-# Top Rated
+# Form Excersice
 --------------------------------------------------------------*/
+#form-exercise{
+    display: block;
+    width: 80%;
+    margin-Top: 2%;
+    margin-left: 10%;
+    background-color: beige;
+    background:url(../img/background-7.png);
+    margin-bottom: 2%;
+    border-radius: 20px;
+    height: 500px;
+}
+
+.form-exc-required
+{
+    padding: 5% 0%;
+    display: flex;
+    width: 100%;
+}
+.form-exc-left
+{
+    padding: 0% 4%;
+    display: inline-block;
+    width: 50%;
+}
+.form-exc-right
+{
+    padding: 0% 4%;
+    display: inline-block;
+    width: 50%;
+}
+.form-exc-extra{
+    display: flex;
+    width: 100%;
+}
+.form-exc-icons{
+    display: block;
+    width: 70%;
+    padding: 1%;
+    margin-left: 15%;
+    color: white;
+}
+.form-exc-buttons{
+    display: block;
+    width: 30%;
+    margin-left: 35%;
+    margin-bottom: 5%;
+}
+.form-exc-buttons button{
+    margin-left: 15%;
+    width: 30%;
+    font-weight: bold;
+}
+
+.form-exc-checkbox{
+    display: block;
+    width: 65%;
+    padding: 1%;
+    margin-left: 15%;
+    color: white;
+}
+.form-header{
+    color:bisque;
+    font-size: 16px;
+    font-weight: bold;
+}
 
 
 
+/*--------------------------------------------------------------
+# Train
+--------------------------------------------------------------*/
+#Train{
+    height: 800px;
+    background-color: aliceblue;
+}
+#Train article{
+    margin-top: 0;
+    border-top: 0px;
+    border-bottom: 0px;
+    height: 18%;
+}
+
+.train-header{
+    display: block;
+    height: 6%;
+    width:70%;
+    margin-left: 15%;
+    border: 1px solid gray;
+    background-image: linear-gradient(darkslategrey, #87CEFA);
+}
+.train-footer h3{
+    text-align: center;
+    color: white;
+    font-weight: bold;
+}
+.train-header h3{
+    text-align: center;
+    color: white;
+    font-weight: bold;
+}
+.foot-60{
+    bottom: 0;
+    width: 40%;
+    margin-left: 26%;
+    border-bottom: 1px solid gray;
+}
+.train-footer{
+    display: flex;
+    height: 8%;
+    width:70%;
+    margin-left: 15%;
+    border: 1px solid gray;
+    background-image: linear-gradient(#87CEFA, darkslategrey);
+}
+.train-footer label{
+    margin-top: 2%;
+    font-weight: bold;
+    color: #FFFACD;
+    font-size: 18px;
+}
+.train-footer span{
+    color:white;
+    font-size: 16px;
+    margin-top: 2.2%;
+    margin-left: 1%;
+}
+
+.train-footer .center-lebel{
+    margin-left: 25%;
+    margin-right: 1%;
+}
+.train-footer img{
+    margin-left: 25%;
+    height: 60px;
+    width: 100px;
+}
+.img-header{
+    margin-top: 4%;
+    display: block;
+    height: 20%;
+    width:70%;
+    margin-left: 15%;
+    border-left: 1px solid gray;
+    border-right: 1px solid gray;
+    border-top: 1px solid gray;
+}

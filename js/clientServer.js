@@ -243,26 +243,30 @@ function showExcercises(){
             excercises.forEach(excersice => {
                 $('#pid-excercise').append(
                     '<article class="exer hvr-curl-top-right hvr-shrink"><aside class="left-excer"><label class="head-excer">Step</label> : <span>'+ excersice.step +'</span><br>' +
-                    '<label>Level</label> : <span>'+ excersice.tempo +'</span><br>' +
-                    '<label>Break</label> : <span>'+ excersice.break +'s</span></aside>' +
+                    //'<label>Level</label> : <span>'+ excersice.tempo +'</span><br>' +
+                    (excersice.tempo == 'Easy' ? '<label>Level</label> : <img src="https://img.icons8.com/ios-filled/30/26e07f/heart-with-pulse--v1.png"/><br>': '') +
+                    (excersice.tempo == 'Medium' ? '<label>Level</label> : <img src="https://img.icons8.com/ios-filled/30/CCCC00/heart-with-pulse--v1.png"/><br>': '') +
+                    (excersice.tempo == 'Hard' ? '<label>Level</label> : <img src="https://img.icons8.com/fluent/30/26e07f/heart-with-pulse.png"/><br>': '') +
+                    //'<label>Break</label> : <span>'+ excersice.break +'s</span></aside>' +
+                     (excersice.break == 10 ? '<label>Break</label> : <img src="https://img.icons8.com/dotty/30/6495ED/forward-10.png"/>': '') +
+                     (excersice.break == 15 ? '<label>Break</label> : <img src="https://img.icons8.com/carbon-copy/36/6495ED/15-circled-c.png"/>': '') +
+                     (excersice.break == 20 ? '<label>Break</label> : <img src="https://img.icons8.com/carbon-copy/36/6495ED/20-circled-c.png"/>': '') +
+                     (excersice.break == 30 ? '<label>Break</label> : <img src="https://img.icons8.com/dotty/30/6495ED/forward-30.png"/>': '') +
+                     (excersice.break == 45 ? '<label>Break</label> : <img src="https://img.icons8.com/color/30/6495ED/45.png"/>': '') +
+                     (excersice.break == 60 ? '<label>Break</label> : <img src="https://img.icons8.com/ios/30/6495ED/last-60-sec.png"/>': '') +
+                    '</aside>'+
+                    //<img src="https://img.icons8.com/dotty/80/000000/forward-30.png"/>
                     '<aside class="midle-excer"><label>Mount</label> : <span>'+ excersice.count +' x '+ excersice.distance +'</span><br>' +
                     '<label>Style</label> : <span>'+ excersice.multiple +'</span><br>' + 
-                    '<label>Details:</label> : <span>'+ excersice.details +'</span></aside>' +
-                    '<aside class="right-excer">');
-                    if(excersice.isKickBoard){
-                        $('#pid-excercise').append('<img src="https://img.icons8.com/fluent/48/000000/buoyancy-compensator.png"/>');
-                    }
-                    if(excersice.isFins){
-                        $('#pid-excercise').append('<img src="https://img.icons8.com/officel/40/000000/flippers.png"/><br>');
-                    }
-                    if(excersice.isPullbuoy){
-                        $('#pid-excercise').append('<img src="https://img.icons8.com/fluent/48/000000/buoyancy-compensator.png"/>');
-                    }
-                    if(excersice.isHandPaddles){
-                        $('#pid-excercise').append('<img src="https://img.icons8.com/officel/40/000000/flippers.png"/>');
-                    }
-                    $('#pid-excercise').append('</aside></article>'); 
-    });
+                    '<label>Details</label> : <span>'+ excersice.details +'</span></aside>' +
+                    '<aside class="right-excer">' + 
+                    (excersice.isKickBoard == true ? '<img src="https://img.icons8.com/fluent/40/000000/buoyancy-compensator.png"/>': '') +
+                    (excersice.isFins == true ? '<img src="https://img.icons8.com/officel/40/000000/flippers.png"/><br>': '') +
+                    (excersice.isPullbuoy == true ? '<img src="https://img.icons8.com/ultraviolet/40/000000/float.png"/>': '') +
+                    (excersice.isHandPaddles == true ? '<img src="https://img.icons8.com/wired/40/4a90e2/hand.png"/>': '') 
+
+                );
+            });
         },
         error:function(){  
            alert('Error - showExcercises');
@@ -271,7 +275,50 @@ function showExcercises(){
     });
 }
 
+function postExcercise(){    
+    let styles = document.getElementsByClassName('multiple');
+    let newStyles = [];
+    if(styles[0].checked) newStyles.push(styles[0].value);
+    if(styles[1].checked) newStyles.push(styles[1].value);
+    if(styles[2].checked) newStyles.push(styles[2].value);
+    if(styles[3].checked) newStyles.push(styles[3].value);
+    if(styles[4].checked) newStyles.push(styles[4].value);
+    
+    let equipments = document.getElementsByClassName('equipment');
+     const formData = {
+            'count' : document.getElementById("count").value,
+            'distance': document.getElementById("distance").value,
+            'multiple': newStyles,
+            'step': document.getElementById("step").value,
+            'details': document.getElementById("details").value,
+            'tempo': document.getElementById("tempo").value,
+            'break': document.getElementById("break").value,
+            'isFins': equipments[0].value,
+            'isPullbuoy': equipments[1].value,
+            'isHandPaddles': equipments[2].value,
+            'isKickBoard': equipments[3].value
+        };
+        console.log(formData);
+        $.ajax({
+            url: 'http://localhost:8080/api/excercisies',
+            type: 'POST', 
+            data:formData,
+            cache: false,
+            dataType : 'json',
+            success: function(excersice) {
+                top.location.href="excercises.html";
+            },  
+            error:function(message){  
+                $('.error-box').append(`<h2>errors</h2><p>`+message+`</p>`);
+            }
+        })
+}
 
+
+$(document).on('click', '#form-exes-submit', function(e){
+    e.preventDefault();
+    postExcercise();
+});
 $(document).on('click', '.img-popular-big', function(e) {
     top.location.href="recomend.html"
 });

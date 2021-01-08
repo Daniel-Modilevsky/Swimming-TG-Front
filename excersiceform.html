@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title> Smart Search </title>
+    <meta content="" name="descriptison">
+    <meta content="" name="keywords">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="css/hover.css" rel="stylesheet">
+
+    
+
+
+    <link href="css/home2.css" rel="stylesheet">
+</head>
+
+<body>
+    <nav id="aside-nav">
+        <div class="d-flex flex-column">
+            <div class="search-links">
+                <img src="img/logo.png">
+            </div>
+           <nav class="nav-menu">
+                <ul>
+                    <li><a href="home.html"><i class="bx bx-home selected"></i> Home</a></li>
+                    <li><a href="profile.html"><i class="bx bx-user"></i> Profile</a></li>
+                    <li><a href="trainform.html"><i class="bx bx-swim"></i> Train Builder</a></li>
+                    <li><a href="excersiceform.html"><i class="bx bx-duplicate"></i> Excercise Builder</a></li>
+                    <li><a href="random.html"><i class="bx bx-loader-circle bx-spin-hover"></i> Random Train</a></li>
+                    <li><a href="excercises.html"><i class="bx bx-detail"></i> Excercise List</a></li>
+                    <li><a href="train.html"><i class="bx bx-rocket"></i> Train</a></li>
+                    <li><a href="index.html"><i class="bx bx-dots-horizontal-rounded"></i> Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div id="mini-profile">
+            <img src="img/profile-demo.png">
+                <h4 id = "userName" class="text-light"> </h4>       
+        </div>
+        <nav class="nav-footer">
+            <ul>
+                <li><a href="#"> Privacy Policy </a></li>
+                <li> © 2020 Daniel Modilevsky,<br> Anar Djafarov</li>
+            </ul>
+        </nav>
+    </nav>
+    
+    <main data-aos="fade-up">
+        <header>
+            <h1>Excercise Form</h1>
+        </header>
+       <div id="form-exercise">
+         <form>
+          <section class="form-exc-required">
+                <aside class="form-exc-left">
+                    <div class="form-floating">
+                      <select class="form-select" id="count" name="count">
+                        <option value="1" selected>1 x</option>
+                        <option value="2">2 x</option>
+                        <option value="3">3 x</option>
+                        <option value="4">4 x</option>
+                        <option value="5">5 x</option>
+                        <option value="6">6 x</option>
+                      </select>
+                      <label for="floatingSelect">Count</label>
+                    </div>
+                </aside>
+                <aside class="form-exc-right">
+                    <div class="form-floating">
+                      <select class="form-select" id="distance" name="distance">
+                        <option value="25" selected>25m</option>
+                        <option value="50">50m</option>
+                        <option value="100">100m</option>
+                        <option value="200">200m</option>
+                        <option value="400">400m</option>
+                      </select>
+                      <label for="floatingSelect">Distance</label>
+                    </div>
+                </aside>
+           </section>
+             <section class ="form-exc-checkbox" id="style">
+                 <label class="form-header">Style : </label>
+                 <div class="form-check form-check-inline">
+                  <input class="form-check-input multiple" type="checkbox" value="Mix" name="Mix">
+                  <label class="form-check-label">Mix</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input multiple" type="checkbox" value="Freestyle" name="Freestyle">
+                  <label class="form-check-label" >Freestyle</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input multiple" type="checkbox" value="Breaststroke" name="Breaststroke">
+                  <label class="form-check-label" >Breaststroke</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input multiple" type="checkbox" value="Butterfly" name="Butterfly">
+                  <label class="form-check-label" >Butterfly</label>
+                </div>
+                 <div class="form-check form-check-inline">
+                  <input class="form-check-input multiple" type="checkbox" value="BackStroke" name="BackStroke">
+                  <label class="form-check-label" >BackStroke</label>
+                </div>
+             </section>
+           <section class="form-exc-extra">
+                <aside class="form-exc-left">
+                    <div class="form-floating">
+                      <select class="form-select" id="step" name="step">
+                        <option value="Warm Up" selected>Warm Up</option>
+                        <option value="Main Set">Main Set</option>
+                        <option value="Swim Down">Swim Down</option>
+                        <option value="Race">Race</option>
+                      </select>
+                      <label for="floatingSelect">Step</label>
+                    </div>
+                    <br>
+                    <div class="form-floating">
+                      <textarea class="form-control" placeholder="Type here " id="details" name="details"></textarea>
+                      <label for="floatingTextarea">Details</label>
+                    </div>
+                </aside>
+                <aside class="form-exc-right">
+                    <div class="form-floating">
+                      <select class="form-select" id="tempo" name="tempo">
+                        <option value="Easy" selected>Easy</option>
+                        <option value="Medium">Medium</option>
+                        <option value="Hard">Hard</option>
+                      </select>
+                      <label for="floatingSelect">Tempo</label>
+                    </div>
+                    <br>
+                     <div class="form-floating">
+                      <select class="form-select" id="break" name="break">
+                        <option value="10" selected>10 sec</option>
+                        <option value="15">15 sec</option>
+                        <option value="20">20 sec</option>
+                        <option value="30">30 sec</option>
+                        <option value="45">45 sec</option>
+                        <option value="60">60 sec</option>
+                      </select>
+                      <label for="floatingSelect">Break</label>
+                    </div>
+                </aside>
+           </section>
+           <section class="form-exc-icons" id="equipment">
+                 <label class="form-header">Equipment : </label>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input equipment" type="checkbox" value="isFins" name="isFins">
+                  <label class="form-check-label" >Fins</label>
+                  <img src="https://img.icons8.com/officel/30/000000/flippers.png"/>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input equipment" type="checkbox"  value="isPullbuoy" name="isPullbuoy">
+                  <label class="form-check-label" >Pullbuoy</label>
+                  <img src="https://img.icons8.com/ultraviolet/30/000000/float.png"/>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input equipment" type="checkbox" value="isHandPaddles" name="isHandPaddles">
+                  <label class="form-check-label" >Hand Paddles</label>
+                  <img src="https://img.icons8.com/wired/30/FFFFE0/hand.png"/>
+                </div>
+                 <div class="form-check form-check-inline">
+                  <input class="form-check-input equipment" type="checkbox" value="isKickBoard" name="isKickBoard">
+                  <label class="form-check-label" >Kick Board</label>
+                  <img src="https://img.icons8.com/fluent/30/000000/buoyancy-compensator.png"/>
+                </div>
+             </section>
+           <section class="form-exc-buttons">
+               <button type="submit" class="btn btn-secondary" id="form-exes-submit">Submit</button>
+               <button type="reset" class="btn btn-info">Clear</button>
+           </section>
+           </form>
+           <section class="error-box"></section>
+       </div>
+    </main>
+    
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/boxicons@latest/dist/boxicons.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/venobox/1.9.0/venobox.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="js/clientServer.js"></script>
+    <script> AOS.init();  </script>
+     <script>
+        Parseusername();
+    </script> 
+</body>
+</html>
