@@ -28,22 +28,22 @@
                 <img src="img/logo.png">
             </div>
 
-            <nav class="nav-menu">
+             <nav class="nav-menu">
                 <ul>
                     <li><a href="home.html"><i class="bx bx-home selected"></i> Home</a></li>
                     <li><a href="profile.html"><i class="bx bx-user"></i> Profile</a></li>
-                    <li><a href="trainform.html"><i class="bx bx-swim"></i> Train Builder</a></li>
+                    <li><a href="train.html"><i class="bx bx-swim"></i> Train Builder</a></li>
                     <li><a href="excersiceform.html"><i class="bx bx-duplicate"></i> Excercise Builder</a></li>
                     <li><a href="random.html"><i class="bx bx-loader-circle bx-spin-hover"></i> Random Train</a></li>
                     <li><a href="excercises.html"><i class="bx bx-detail"></i> Excercise List</a></li>
-                    <li><a href="train.html"><i class="bx bx-rocket"></i> Train</a></li>
+                    <li><a href="trainshow.html"><i class="bx bx-rocket"></i> Train</a></li>
                     <li><a href="index.html"><i class="bx bx-dots-horizontal-rounded"></i> Logout</a></li>
                 </ul>
-            </nav>
+            </nav>  
         </div>
 
         <div id="mini-profile">
-            <img src="img/profile-demo.png">
+            <img src="img/profile-demo.png" id="mini-profile-img">
                 <h4 id = "userName" class="text-light"> </h4>       
         </div>
         <nav class="nav-footer">
@@ -58,17 +58,35 @@
         <header>
             <h1>Home Page </h1>
         </header>
+        <video controls autoplay>
+              <source src="img/video1.mp4" type="video/mp4">
+        </video>
        <div class="wrapper">    
-            <div class="homebuttons">
-                <button type="button" class="btn btn-primary btn-lg" onclick="document.location='random.html'">Random workout</button>
-            </div>
-
-            <div class="homebuttons">
-                <button type="button" class="btn btn-primary btn-lg" onclick="document.location='build.html'">Build workout</button>
-            </div>
-
-            <div class="homebuttons">
-                <button type="button" class="btn btn-primary btn-lg" onclick="document.location='history.html'">Workout history</button>
+            <div class="card-group">
+              <div class="card hvr-curl-top-left hvr-hollow" id="train-goto">
+                <img src="./img/card-1.jpg" class="card-img-top">
+                <div class="card-body">
+                  <h5 class="card-title">My Train Builder</h5>
+                  <p class="card-text">Build a personal swimming training based on a wide selection of professional swimming exercises</p>
+                  <p class="card-text"><small class="text-muted">Custom training for the user</small></p>
+                </div>
+              </div>
+              <div class="card hvr-curl-top-left hvr-hollow" id="random-goto">
+                <img src="./img/card-2.jpg" class="card-img-top">
+                <div class="card-body">
+                  <h5 class="card-title">Random Train Builder</h5>
+                  <p class="card-text">Build a fast-paced swimming workout consisting of random swimming exercises according to user requirements</p>
+                  <p class="card-text"><small class="text-muted">A platform for building fast swimming training</small></p>
+                </div>
+              </div>
+              <div class="card hvr-curl-top-left hvr-hollow" id="profile-goto">
+                <img src="./img/card-3.png" class="card-img-top">
+                <div class="card-body">
+                  <h5 class="card-title">My History</h5>
+                  <p class="card-text">A personal swimming training database consisting of the user's training history</p>
+                  <small class="text-muted">Custom system for the user</small>
+                </div>
+              </div>
             </div>
         </div>
     </main>

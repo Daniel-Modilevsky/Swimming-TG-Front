@@ -683,22 +683,39 @@ header form .search-button {
 
 
 /*--------------------------------------------------------------
-# Train
+# Train - show
 --------------------------------------------------------------*/
 #Train{
-    height: 800px;
-    background-color: aliceblue;
+    color: black;
 }
-#Train article{
-    margin-top: 0;
+#Train .train-body{
+    margin-top: -1.8%;
+    display: block;
+}
+#Train .train-body article{
+    margin-top: 0px;
+	margin-bottom: 0;
     border-top: 0px;
     border-bottom: 0px;
-    height: 18%;
+    background-color: aliceblue;
+    width: 70%;
+    margin-left: 15%;
+    border-left: 1px solid gray;
+    border-right: 1px solid gray;
+    height: 130px;
+}
+#Train .train-body article:hover {
+	color:white;
+	transition: 0.4s;
+    color:#4682B4;
 }
 
+#Train .train-body article:hover label{
+	color: #555;
+}
 .train-header{
     display: block;
-    height: 6%;
+    height: 8%;
     width:70%;
     margin-left: 15%;
     border: 1px solid gray;
@@ -713,12 +730,6 @@ header form .search-button {
     text-align: center;
     color: white;
     font-weight: bold;
-}
-.foot-60{
-    bottom: 0;
-    width: 40%;
-    margin-left: 26%;
-    border-bottom: 1px solid gray;
 }
 .train-footer{
     display: flex;
@@ -760,3 +771,304 @@ header form .search-button {
     border-right: 1px solid gray;
     border-top: 1px solid gray;
 }
+#Train .train-body article .plus{
+    display: none;
+}
+
+/*--------------------------------------------------------------
+# Train - Form
+--------------------------------------------------------------*/
+
+#train-form-template {
+}
+
+#train-form-template article{
+    margin-top: 0;
+	margin-bottom: 0;
+    border-top: 0px;
+    border-bottom: 0px;
+    background-color: aliceblue;
+    width: 70%;
+    margin-left: 15%;
+    border-left: 1px solid gray;
+    border-right: 1px solid gray;
+}
+
+.header-label{
+	margin-top: 1%;
+	margin-left: 1%;
+	font-size: 18px;
+	font-weight: bold;
+	color: #333;
+}
+.plus{
+	height:23%;
+	margin-left:1%;
+	margin-bottom:2%;
+
+}
+#train-form-template article .head-excer{
+    display: none;
+}
+#swimdown-article article, #race-article article, #mainset-article article, #worm-article article{
+	display:flex;
+	margin-left:10%;
+	width: 80%;
+	border-left: none;
+	border-right: none;
+	height:100px;
+	margin-bottom: 3%;
+}
+#swimdown-article article:hover , #race-article article:hover ,#mainset-article article:hover ,#worm-article article:hover{
+	color:white;
+	transition: 0.4s;
+    color:#4682B4;
+}
+
+#swimdown-article article:hover label, #race-article article:hover label, #mainset-article article:hover label, #worm-article article:hover label{
+	color: #555;
+}
+#pid-excer-by-step{
+	margin-top:2%;
+}
+.form-train-head{
+    display: block;
+    width: 70%;
+    margin-left: 15%;
+    background-color: aliceblue;
+}
+.form-train-head form .col-auto{
+    margin-top: 2%;
+    margin-left: 10%;
+}
+.form-train-head form .form-floating input{
+    height: 50px;
+}
+.form-train-head form .col-auto button{
+    margin-top: 1%;
+    height: 48px;
+}
+
+#train-form-template .train-footer .center-img-form{
+    margin-left: 43%;
+}
+
+
+
+/*--------------------------------------------------------------
+# Home Page 
+--------------------------------------------------------------*/
+video{
+    width: 80%;
+    margin-left: 10%;
+    height: auto;
+}
+.wrapper{
+    width: 80%;
+    margin-left: 10%;
+    background-color:black;
+    display: block;
+    
+}
+.wrapper .card-group .card{
+    display: block;
+    height: 500px;
+    border: 1px solid gray;
+}
+.wrapper .card-group .card:hover{
+    color: white;
+    cursor: pointer;
+}
+.wrapper .card-group .card:hover .card-body h5{
+    color: #D27E7E;
+}
+.wrapper .card-group .card img{
+    height: 60%;
+}
+.wrapper .card-group .card .card-body h5{
+    text-align: center;
+    font-weight: bold;
+}
+.text-muted{
+    color: #D27E7E;
+    text-align: center;
+}
+
+
+
+/*--------------------------------------------------------------
+# Profile Page 
+--------------------------------------------------------------*/
+#my-profile {
+    margin-top: 3%;
+    display: block;
+    width:80%;
+    margin-left: 10%;
+}
+#my-profile article{
+    width:100%;
+    display: flex;
+    border: 1px solid gray;
+    margin-bottom: 0.5%;
+}
+
+#my-profile article aside {
+    width: 50%;
+    left:0%;
+    border-right: 1px solid gray;
+  
+}
+#my-profile article aside img {
+    width: 100%;
+    height: 500px;
+}
+#my-profile article nav {
+    padding-top: 2%;
+    width:50%;
+    background-color: beige;
+    right: 0%;
+    padding-right: 1%;
+}
+#my-profile article nav ul {
+    list-style: none;
+}
+
+#my-profile article nav ul li label{
+    display: inline-block;
+	margin-top: 2%;
+    font-size: 18px;
+    font-weight: bold;
+    color:#666;
+}
+
+#my-profile article nav ul li span{
+    list-style: none;
+    font-size: 17px;
+}
+
+#my-profile article nav ul li .movie-name{
+    color: #D27E7E;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+#my-profile article form{
+    display: block;
+    position: absolute;
+    margin-top: 20%;
+    margin-left: 42%;
+    width: 30%;
+}
+#my-profile article form .custom-file{
+    display: inline-block;
+    width: 60%;
+    margin-left: 5%;
+    
+}
+#my-profile article form #button-update-img{
+    display: inline-block;
+    width: 30%;
+    margin-top: 1%;
+    height: 36px;
+    margin-left: 2%;
+}
+
+/*===========*/
+#my-profile-list{
+    display: block;
+    width:80%;
+    margin-left: 10%;
+    margin-bottom: 1%;
+    margin-top: 1%;
+    border: 1px solid gray;
+    background-color: aliceblue;
+}
+#my-profile-list article{
+    display: block;
+    background-color:aliceblue;
+    height: 10%;
+    border-bottom: 1px solid gray;
+}
+#my-profile-list article section{
+    margin-left: 7%;
+    display: inline-block;
+    width: 16%;
+}
+#my-profile-list article img{
+    width: 40px;
+    height: 40px;
+}
+#my-profile-list article label{
+    color: #555;
+    font-weight: bold;
+    font-size: 17px;
+}
+#my-profile-list article:hover{
+    cursor: pointer;
+}
+
+
+/*--------------------------------------------------------------
+# Random Page 
+--------------------------------------------------------------*/
+#random-div{
+    margin-top: 17%;
+    display: block;
+    width: 60%;
+    margin-left: 20%;
+    background-color: aliceblue;
+    border: 1px solid gray;
+    border-radius: 40px;
+    position: relative;
+}
+
+#random-div .header-form-random{
+    margin-top: 2%;
+    width: 80%;
+    height: 60px;
+    margin-left: 10%;
+}
+#random-div .header-form-random h3{
+    margin-top: 1%;
+    text-align: center;
+    color: #D27E7E;
+}
+#random-div .body-form-random{
+    width: 80%;
+    margin-left: 10%;
+}
+#random-div .body-form-random .form-floating{
+    width: 90%;
+    margin-left: 4%;
+    margin-bottom: 2%;
+}
+#random-div .body-form-random .radio-random, #random-div .body-form-random .checkbox-random{
+    display: block;
+    height: 30%;
+    margin-bottom: 2%;
+}
+#random-div .body-form-random .radio-random .random-label, #random-div .body-form-random .checkbox-random .random-label{
+    color: #555;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+#random-div .footer-form-random{
+    margin-top: 2%;
+    margin-bottom: 2%;
+    width: 80%;
+    margin-left: 10%;
+    padding-left: 25%;
+}
+.body-img{
+    margin-top: -0.5%;
+    display: flex;
+    position: absolute;
+    width: 100%;
+    height: 150%;
+    background:url(../img/background-2.jpg);
+}
+/*--------------------------------------------------------------
+# Extra
+--------------------------------------------------------------*/
+

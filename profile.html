@@ -32,14 +32,14 @@
                 <ul>
                     <li><a href="home.html"><i class="bx bx-home selected"></i> Home</a></li>
                     <li><a href="profile.html"><i class="bx bx-user"></i> Profile</a></li>
-                    <li><a href="trainform.html"><i class="bx bx-swim"></i> Train Builder</a></li>
+                    <li><a href="train.html"><i class="bx bx-swim"></i> Train Builder</a></li>
                     <li><a href="excersiceform.html"><i class="bx bx-duplicate"></i> Excercise Builder</a></li>
                     <li><a href="random.html"><i class="bx bx-loader-circle bx-spin-hover"></i> Random Train</a></li>
                     <li><a href="excercises.html"><i class="bx bx-detail"></i> Excercise List</a></li>
-                    <li><a href="train.html"><i class="bx bx-rocket"></i> Train</a></li>
+                    <li><a href="trainshow.html"><i class="bx bx-rocket"></i> Train</a></li>
                     <li><a href="index.html"><i class="bx bx-dots-horizontal-rounded"></i> Logout</a></li>
                 </ul>
-            </nav>
+            </nav>  
         </div>
 
         <div id="mini-profile">
@@ -56,12 +56,14 @@
     
     <main data-aos="fade-up">
         <header>
-            <h1>Profile - </h1>
+            <h1>Profile - <span id="user-name-span"></span></h1>
         </header>
-       
+        <div id="my-profile">
+        </div>
+        <div id="my-profile-list">
+        </div>
     </main>
     
-
     
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -74,6 +76,8 @@
     <script> AOS.init();  </script>
      <script>
         Parseusername();
+        getUserTrains();
+        getUser();
     </script> 
 </body>
 </html>

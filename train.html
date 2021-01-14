@@ -10,7 +10,7 @@
     <meta content="" name="keywords">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link href="css/hover.css" rel="stylesheet">
@@ -32,11 +32,11 @@
                 <ul>
                     <li><a href="home.html"><i class="bx bx-home selected"></i> Home</a></li>
                     <li><a href="profile.html"><i class="bx bx-user"></i> Profile</a></li>
-                    <li><a href="trainform.html"><i class="bx bx-swim"></i> Train Builder</a></li>
+                    <li><a href="train.html"><i class="bx bx-swim"></i> Train Builder</a></li>
                     <li><a href="excersiceform.html"><i class="bx bx-duplicate"></i> Excercise Builder</a></li>
                     <li><a href="random.html"><i class="bx bx-loader-circle bx-spin-hover"></i> Random Train</a></li>
                     <li><a href="excercises.html"><i class="bx bx-detail"></i> Excercise List</a></li>
-                    <li><a href="train.html"><i class="bx bx-rocket"></i> Train</a></li>
+                    <li><a href="trainshow.html"><i class="bx bx-rocket"></i> Train</a></li>
                     <li><a href="index.html"><i class="bx bx-dots-horizontal-rounded"></i> Logout</a></li>
                 </ul>
             </nav>
@@ -58,74 +58,109 @@
         <header>
             <h1>Train Page</h1>
         </header>
-       <div id="Train">
+       <div id="train-form-template">
            <img src="img/header-5.jpg" class="img-header">
             <section class="train-header">
-                <h3>Train Name : First one</h3>
+                <h3>Create Your Train</h3>
            </section>
-            <article class="exer">
-                <aside class="left-excer">
-                    <label class="head-excer">Step</label> : <span> Worm Up </span><br> 
-                    <label>temp</label> : <img src="https://img.icons8.com/ios-filled/30/26e07f/heart-with-pulse--v1.png"/><br>
-                    <label >break</label> : <img src="https://img.icons8.com/dotty/30/6495ED/forward-10.png"/>
-                </aside>
-                <aside class="midle-excer"><label>Mount</label> : <span> 4 x 200m </span><br> 
-                    <label>Style</label> : <span> Freestyle, Mix, Beackstroke </span><br>
-                    <label>Details</label> : <span> excersice.details excersice.details </span>
-                </aside> 
-                <aside class="right-excer"> 
-                    <img src="https://img.icons8.com/fluent/40/000000/buoyancy-compensator.png"/>
-                    <img src="https://img.icons8.com/officel/40/000000/flippers.png"/><br>
-                    <img src="https://img.icons8.com/ultraviolet/40/000000/float.png"/>
-                    <img src="https://img.icons8.com/wired/40/4a90e2/hand.png"/>
-                </aside>
+           <section class="form-train-head">
+               <form class="row g-2">
+                  <div class="col-auto form-floating">
+                        <input type="text" class="form-control" id="floatingInputGrid" placeholder="Best Workout" name="name">
+                        <label for="floatingInputGrid">Name: </label>
+                  </div>
+                  <div class="col-auto form-floating">
+                        <input type="date" class="form-control" id="floatingInput" placeholder="" name="date">
+                        <label for="floatingInput">Date: </label>
+                  </div>
+                  <div class="col-auto">
+                        <button type="submit" class="btn btn-primary mb-3" id="form-train-submit">Submit</button>
+                  </div>
+                </form>
+           </section>
+           <article>
+               <label class="header-label">Warm Up</label>
+                <div id="worm-article">
+                </div>
+                <button class="plus btn btn-outline-info" id="plus-worm"><i class="bx bx-plus"></i></button>
            </article>
-
-          <article class="exer">
-                <aside class="left-excer">
-                    <label class="head-excer">Step</label> : <span> Worm Up </span><br> 
-                    <label>temp</label> : <img src="https://img.icons8.com/ios-filled/30/26e07f/heart-with-pulse--v1.png"/><br>
-                    <label >break</label> : <img src="https://img.icons8.com/dotty/30/6495ED/forward-10.png"/>
-                </aside>
-                <aside class="midle-excer"><label>Mount</label> : <span> 4 x 200m </span><br> 
-                    <label>Style</label> : <span> Freestyle, Mix, Beackstroke </span><br>
-                    <label>Details</label> : <span> excersice.details excersice.details </span>
-                </aside> 
-                <aside class="right-excer"> 
-                    <img src="https://img.icons8.com/fluent/40/000000/buoyancy-compensator.png"/>
-                    <img src="https://img.icons8.com/officel/40/000000/flippers.png"/><br>
-                    <img src="https://img.icons8.com/ultraviolet/40/000000/float.png"/>
-                    <img src="https://img.icons8.com/wired/40/4a90e2/hand.png"/>
-                </aside>
+           <article>
+               <label class="header-label">Main Set</label>
+                <div id="mainset-article">
+                </div>
+               <button class="plus btn btn-outline-info" id="plus-main"><i class="bx bx-plus"></i></button>
            </article>
-
-                  <article class="exer ">
-                <aside class="left-excer">
-                    <label class="head-excer">Step</label> : <span> Worm Up </span><br> 
-                    <label>temp</label> : <img src="https://img.icons8.com/ios-filled/30/26e07f/heart-with-pulse--v1.png"/><br>
-                    <label >break</label> : <img src="https://img.icons8.com/dotty/30/6495ED/forward-10.png"/>
-                </aside>
-                <aside class="midle-excer"><label>Mount</label> : <span> 4 x 200m </span><br> 
-                    <label>Style</label> : <span> Freestyle, Mix, Beackstroke </span><br>
-                    <label>Details</label> : <span> excersice.details excersice.details </span>
-                </aside> 
-                <aside class="right-excer"> 
-                    <img src="https://img.icons8.com/fluent/40/000000/buoyancy-compensator.png"/>
-                    <img src="https://img.icons8.com/officel/40/000000/flippers.png"/><br>
-                    <img src="https://img.icons8.com/ultraviolet/40/000000/float.png"/>
-                    <img src="https://img.icons8.com/wired/40/4a90e2/hand.png"/>
-                </aside>
+           <article>
+                <label class="header-label">Swim Down</label>
+                <div id="swimdown-article">
+                    <!--<article class="exer hvr-underline-from-center">
+                        <aside class="left-excer">
+                            <label>temp</label> : <img src="https://img.icons8.com/ios-filled/30/26e07f/heart-with-pulse--v1.png"/><br>
+                            <label >break</label> : <img src="https://img.icons8.com/dotty/30/6495ED/forward-10.png"/>
+                        </aside>
+                        <aside class="midle-excer"><label>Mount</label> : <span> 4 x 200m </span><br> 
+                            <label>Style</label> : <span> Freestyle, Mix, Beackstroke </span><br>
+                            <label>Details</label> : <span> excersice.details excersice.details </span>
+                        </aside> 
+                        <aside class="right-excer"> 
+                            <img src="https://img.icons8.com/fluent/40/000000/buoyancy-compensator.png"/>
+                            <img src="https://img.icons8.com/officel/40/000000/flippers.png"/><br>
+                            <img src="https://img.icons8.com/ultraviolet/40/000000/float.png"/>
+                            <img src="https://img.icons8.com/wired/40/4a90e2/hand.png"/>
+                            <button class="btn btn-outline-danger "><i class="bx bx-minus"></i></button>
+                        </aside>
+                   </article>
+                    <article class="exer hvr-underline-from-center">
+                        <aside class="left-excer">
+                            <label>temp</label> : <img src="https://img.icons8.com/ios-filled/30/26e07f/heart-with-pulse--v1.png"/><br>
+                            <label >break</label> : <img src="https://img.icons8.com/dotty/30/6495ED/forward-10.png"/>
+                        </aside>
+                        <aside class="midle-excer"><label>Mount</label> : <span> 4 x 200m </span><br> 
+                            <label>Style</label> : <span> Freestyle, Mix, Beackstroke </span><br>
+                            <label>Details</label> : <span> excersice.details excersice.details </span>
+                        </aside> 
+                        <aside class="right-excer"> 
+                            <img src="https://img.icons8.com/fluent/40/000000/buoyancy-compensator.png"/>
+                            <img src="https://img.icons8.com/officel/40/000000/flippers.png"/><br>
+                            <img src="https://img.icons8.com/ultraviolet/40/000000/float.png"/>
+                            <img src="https://img.icons8.com/wired/40/4a90e2/hand.png"/>
+                            <button class="btn btn-outline-danger"><i class="bx bx-minus"></i></button>
+                        </aside>
+                   </article>-->
+                </div>
+                <button class="plus btn btn-outline-info" id="plus-down"><i class="bx bx-plus"></i></button>
+           </article>
+           <article>
+                <label class="header-label">Race</label>
+                <div id="race-article">
+                    <!--<article class="exer hvr-underline-from-center">
+                        <aside class="left-excer">
+                            <label>temp</label> : <img src="https://img.icons8.com/ios-filled/30/26e07f/heart-with-pulse--v1.png"/><br>
+                            <label >break</label> : <img src="https://img.icons8.com/dotty/30/6495ED/forward-10.png"/>
+                        </aside>
+                        <aside class="midle-excer"><label>Mount</label> : <span> 4 x 200m </span><br> 
+                            <label>Style</label> : <span> Freestyle, Mix, Beackstroke </span><br>
+                            <label>Details</label> : <span> excersice.details excersice.details </span>
+                        </aside> 
+                        <aside class="right-excer"> 
+                            <img src="https://img.icons8.com/fluent/40/000000/buoyancy-compensator.png"/>
+                            <img src="https://img.icons8.com/officel/40/000000/flippers.png"/><br>
+                            <img src="https://img.icons8.com/ultraviolet/40/000000/float.png"/>
+                            <img src="https://img.icons8.com/wired/40/4a90e2/hand.png"/>
+                            <button class="btn btn-outline-danger remove-exer"><i class="bx bx-minus"></i></button>
+                        </aside>
+                   </article>-->
+                </div>
+                <button class="plus btn btn-outline-info" id="plus-race"><i class="bx bx-plus"></i></button>
            </article>
            <section class="train-footer">
-                <label>Date: </label><span> 07.01.21</span>
-                <label class="center-lebel">Distance: </label><span> 4000m</span>
-                <img src="img/logo.png" class="right-img">
+                <img src="img/logo.png" class="center-img-form">
            </section>
        </div>
+      <div id="pid-excer-by-step"></div>
     </main>
     
 
-    
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
