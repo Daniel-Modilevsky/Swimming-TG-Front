@@ -43,7 +43,7 @@ function postLogin(){
     
     
         $.ajax({
-            url: 'http://localhost:8080/api/authentication/login',
+            url: 'https://swimmingtg.herokuapp.com/api/authentication/login',
             type: 'POST', 
             data:formData,
             cache: false,
@@ -61,14 +61,25 @@ function postLogin(){
         })
 }
 function postRegister(){
-    let input2 = document.getElementById("customFile").value;
+    //let input2 = document.getElementById("customFile").value;
     let input1 = $('#customFile')[0].files;
-    console.log(input2);
-    console.log(input1);
+    let input3 = input1[0];
+
+    var fd = new FormData();
+    let name = $('input[name=user_name]').val();
+    let mail = $('input[name=email]').val();
+    let pass = $('input[name=password]').val();
+    let pass2 = $('input[name=password2]').val();
+    fd.append('user_name', name);
+    fd.append('email', mail);
+    fd.append('password', pass);
+    fd.append('password2', pass2);
+    fd.append('image', input3);
+        
+    console.log(input1[0]);
     var fd = new FormData();
     var files = $('#customFile')[0].files;
     fd.append('image',files[0]);
-
     
     const formData = {
         'user_name' : $('input[name=user_name]').val(),
@@ -77,12 +88,25 @@ function postRegister(){
         'password2': $('input[name=password2]').val(),
         'image': input1
     };
+    console.log(formData);
+    
+    /*
+      const formData = new FormData({
+        'user_name' : document.getElementById("user_name"),
+        'email': document.getElementById("email"),
+        'password':  document.getElementById("password"),
+        'password2': document.getElementById("password2"),
+        'image': input1[0]
+    });
+    */
+    
     $.ajax({
-        url: 'http://localhost:8080/api/authentication/signup',
+        url: 'https://swimmingtg.herokuapp.com/api/authentication/signup',
         type: 'POST', 
-        data:formData,
+        data:fd,
         cache: false,
         dataType : 'json',
+        enctype: 'multipart/form-data',
         success: function(user) {
             localStorage.setItem("User", formData.user_name);
             let id = user.profile._id;
@@ -101,7 +125,7 @@ async function Parseusername(){
         let image = localStorage.getItem("image");
         let urlImage = "";
         if(image == 'img/Unknown_person.jpg') urlImage = image;
-        else urlImage = 'http://localhost:8080/' + image;
+        else urlImage = 'https://swimmingtg.herokuapp.com/' + image;
         $('#mini-profile').empty();
         $('#mini-profile').append(
             '<img src="' + urlImage +'">'+
@@ -115,7 +139,7 @@ function imageShow(){
     image = "img/Unknown_person.jpg"
     localStorage.setItem("image", image);
      $.ajax({
-        url: `http://localhost:8080/api/users/${id}`,
+        url: `https://swimmingtg.herokuapp.com/api/users/${id}`,
         type: 'GET',
         success: function(user) {
             let newImage = user.user.image;
@@ -131,9 +155,9 @@ function imageShow(){
 }
 //=========EXCER============
 function showExcercises(){
-    console.log(`http://localhost:8080/api/excercisies`);
+    console.log(`https://swimmingtg.herokuapp.com/api/excercisies`);
     $.ajax({
-        url: `http://localhost:8080/api/excercisies`,
+        url: `https://swimmingtg.herokuapp.com/api/excercisies`,
         type: 'GET',
         success: function(excercises) {
             $('#pid-excercise').empty();
@@ -196,7 +220,7 @@ function postExcercise(){
         };
         console.log(formData);
         $.ajax({
-            url: 'http://localhost:8080/api/excercisies',
+            url: 'https://swimmingtg.herokuapp.com/api/excercisies',
             type: 'POST', 
             data:formData,
             cache: false,
@@ -210,7 +234,7 @@ function postExcercise(){
         })
 }
 function getExcerciseByStep(step){
-    console.log(`http://localhost:8080/api/step/:${step}`);
+    console.log(`https://swimmingtg.herokuapp.com/api/step/:${step}`);
     let stepList = '';
     if(step == 'Race')          stepList = '#race-article';
     else if(step == 'Warm Up')  stepList = '#worm-article'; 
@@ -218,7 +242,7 @@ function getExcerciseByStep(step){
     else                        stepList = '#swimdown-article'; 
 
     $.ajax({
-        url: `http://localhost:8080/api/step/${step}`,
+        url: `https://swimmingtg.herokuapp.com/api/step/${step}`,
         type: 'GET',
         success: function(excercises) {
             $('#pid-excer-by-step').empty();
@@ -308,7 +332,7 @@ function chooseExcer(str){
     if(listName == '#mainset-article')  pushList(mainList, excerId);
     if(listName == '#swimdown-article') pushList(downList, excerId);
     $.ajax({
-        url: `http://localhost:8080/api/excercisies/${excerId}`,
+        url: `https://swimmingtg.herokuapp.com/api/excercisies/${excerId}`,
         type: 'GET',
         success: function(excercise) {
             $(listName).append(
@@ -343,7 +367,7 @@ function chooseExcer(str){
 function getExcercise(listName, id){
     let str = `${id}, ${listName}`;
     $.ajax({
-        url: `http://localhost:8080/api/excercisies/${id}`,
+        url: `https://swimmingtg.herokuapp.com/api/excercisies/${id}`,
         type: 'GET',
         success: function(excercise) {
            $(listName).append(
@@ -402,7 +426,7 @@ function showFormExcercises(listName){
 async function distance(excerciseisList){
     await excerciseisList.forEach(element => {
         $.ajax({
-            url: `http://localhost:8080/api/excercisies/${element}`,
+            url: `https://swimmingtg.herokuapp.com/api/excercisies/${element}`,
             type: 'GET',
             success: function(excercise) {
                 let coun = excercise.excercise.count;
@@ -443,7 +467,7 @@ async function postTrain(){
             'totalDistance': parseInt(localStorage.getItem("Distance")),        
         };
     $.ajax({
-        url: 'http://localhost:8080/api/trains',
+        url: 'https://swimmingtg.herokuapp.com/api/trains',
         type: 'POST', 
         data:formData,
         cache: false,
@@ -470,7 +494,7 @@ async function postTrain(){
 function getTrain(){
     let id = localStorage.getItem('trainID');
     $.ajax({
-        url: `http://localhost:8080/api/trains/${id}`,
+        url: `https://swimmingtg.herokuapp.com/api/trains/${id}`,
         type: 'GET',
         success: function(train) {
            $('#Train').append(
@@ -487,7 +511,7 @@ function getTrain(){
         },
         error:function(){  
            alert('Error - getMovie');
-           top.location.href="404.html"
+           //top.location.href="404.html"
         }   
     });           
 };
@@ -497,7 +521,7 @@ function pushTrain(){
 
    const formData = { 'train' : trainID };
     $.ajax({
-        url: `http://localhost:8080/api/users/${userId}`,
+        url: `https://swimmingtg.herokuapp.com/api/users/${userId}`,
         type: 'PUT',
         data:formData,
         success: function(user) {
@@ -525,9 +549,9 @@ async function getUser(){
         let image = localStorage.getItem("image");
         let urlImage = "";
         if(image == 'img/Unknown_person.jpg') urlImage = image;
-        else urlImage = 'http://localhost:8080/' + image;
+        else urlImage = 'https://swimmingtg.herokuapp.com/' + image;
         $.ajax({
-            url: `http://localhost:8080/api/users/${id}`,
+            url: `https://swimmingtg.herokuapp.com/api/users/${id}`,
             type: 'GET',
             success: function(user) {
                 $('#user-name-span').append((name).toUpperCase());
@@ -556,14 +580,14 @@ function getUserTrains(){
     let totalExcercise = 0;
     let lestDate = 01/01/90;
     $.ajax({
-        url: `http://localhost:8080/api/users/${id}`,
+        url: `https://swimmingtg.herokuapp.com/api/users/${id}`,
         type: 'GET',
         success: function(user) {
             $('#my-profile-list').empty();
              user.user.trainsHistory.forEach(trainId => {
                 console.log(trainId);
                 $.ajax({
-                    url: `http://localhost:8080/api/trains/${trainId}`,
+                    url: `https://swimmingtg.herokuapp.com/api/trains/${trainId}`,
                     type: 'GET',
                     success: function(train) {
                         $('#my-profile-list').append(
@@ -602,10 +626,7 @@ function getUserTrains(){
     });     
 }
 
-
-
 //=========Random===============
-
 function postRandom(){
     let equipments2 = document.getElementsByClassName('eqip');
     const formData = {
@@ -615,23 +636,89 @@ function postRandom(){
             'isHandPaddles':  equipments2[2].checked,
             'isKickBoard': equipments2[3].checked
         };
-        console.log(formData);
+        localStorage.setItem('distanceTrain',formData.distance )
         $.ajax({
-            url: 'http://localhost:8080/api/random',
+            url: 'https://swimmingtg.herokuapp.com/api/random',
             type: 'POST', 
             data:formData,
             cache: false,
             dataType : 'json',
-            success: function(msg, workout) {
-                console.log(`msg - ${msg}`);
-                console.log(workout);
+            success: function(data) {
+                showRandomTrain(data);
             },  
             error:function(message){  
                 $('.error-box').append(`<h2>errors</h2><p>`+message+`</p>`);
             }
         })
 }
+function showRandomTrain(data){
+    let excercises = data;
+    let results = [];
+    $('#train-show-random').empty();
+    $('#train-show-random').append(
+        '<img src="img/header-3.jpg" class="img-header">'+
+        '<section class="train-header"><h3>Train Name : Random Train</h3></section>'
+    )
+    excercises.forEach(excersice => {
+            results.push(excersice._id.toString());
+            $('#train-show-random').append(
+            '<article class="exer hvr-underline-from-center"><aside class="left-excer">'+
+            '<label class="head-excer">Step</label> : <span class="head-excer">'+ excersice.step +'</span><br>' +
+            (excersice.tempo == 'Easy' ? '<label>Level</label> : <img src="https://img.icons8.com/ios-filled/28/26e07f/heart-with-pulse--v1.png"/><br>': '') +
+                (excersice.tempo == 'Medium' ? '<label>Level</label> : <img src="https://img.icons8.com/ios-filled/28/CCCC00/heart-with-pulse--v1.png"/><br>': '') +
+                (excersice.tempo == 'Hard' ? '<label>Level</label> : <img src="https://img.icons8.com/fluent/28/26e07f/heart-with-pulse.png"/><br>': '') +
+                 (excersice.break == 10 ? '<label>Break</label> : <img src="https://img.icons8.com/dotty/38/6495ED/forward-10.png"/>': '') +
+                 (excersice.break == 15 ? '<label>Break</label> : <img src="https://img.icons8.com/carbon-copy/38/6495ED/15-circled-c.png"/>': '') +
+                 (excersice.break == 20 ? '<label>Break</label> : <img src="https://img.icons8.com/carbon-copy/38/6495ED/20-circled-c.png"/>': '') +
+                 (excersice.break == 30 ? '<label>Break</label> : <img src="https://img.icons8.com/dotty/38/6495ED/forward-30.png"/>': '') +
+                 (excersice.break == 45 ? '<label>Break</label> : <img src="https://img.icons8.com/color/38/6495ED/45.png"/>': '') +
+                 (excersice.break == 60 ? '<label>Break</label> : <img src="https://img.icons8.com/ios/28/6495ED/last-60-sec.png"/>': '') +
+                '</aside>'+
+                '<aside class="midle-excer"><label>Mount</label> : <span>'+ excersice.count +' x '+ excersice.distance +'</span><br>' +
+                '<label>Style</label> : <span>'+ excersice.multiple +'</span><br>' + 
+                '<label>Details</label> : <span>'+ excersice.details +'</span></aside>' +
+                '<aside class="right-excer">' + 
+                (excersice.isKickBoard == true ? '<img src="https://img.icons8.com/fluent/40/000000/buoyancy-compensator.png"/>': '') +
+                (excersice.isFins == true ? '<img src="https://img.icons8.com/officel/40/000000/flippers.png"/><br>': '') +
+                (excersice.isPullbuoy == true ? '<img src="https://img.icons8.com/ultraviolet/40/000000/float.png"/>': '') +
+                (excersice.isHandPaddles == true ? '<img src="https://img.icons8.com/wired/40/4a90e2/hand.png"/>': '')+
+                '</aside></article>'
+        )});
+           $('#train-show-random').append(            
+            '<section class="train-footer"><label class="center-lebel">Distance: </label><span> '+        localStorage.getItem('distanceTrain')+'m</span>'+               
+            '<img src="img/logo.png" class="right-img"></section><div class ="footer-form-random">'+
+            '<button class="btn btn-success" onClick="postRandomTrain(\'' + results + '\')">Save</button>'+
+            '<button class="btn btn-secondary" onClick="postRandomTrain(\'' + results + '\')">Rand Again</button></div></div>'
+    )
+}
+function postRandomTrain(data){   
+    let formData;
+    console.log(data);
+    alert(data)
+    let myTotalDistance = parseInt(localStorage.getItem("Distance"));
+    formData = {
+        'name' : 'Random Train',
+        'date': new Date(),
+        'exercisies': data,
+        'totalDistance': parseInt(localStorage.getItem('distanceTrain')),        
+    };
+    $.ajax({
+        url: 'https://swimmingtg.herokuapp.com/api/trains',
+        type: 'POST', 
+        data:formData,
+        cache: false,
+        dataType : 'json',
+        success: function(train) {
+            localStorage.setItem('trainID', train._id);
+            pushTrain();
+            top.location.href="trainshow.html";
+        },  
+        error:function(message){  
+            $('.error-box').append(`<h2>errors</h2><p>`+message+`</p>`);
+        }
+    })    
 
+}
 
 
 //=========LISTENER============
@@ -683,4 +770,20 @@ $(document).on('click', '#random-button', function(e){
     e.preventDefault();
     postRandom();
 });
+$(document).on('click', '#htmlToCanvas', function(e){
+    e.preventDefault();
+    let div = document.getElementById('Train'); 
+    html2canvas(div).then(  function (canvas) { 
+        Canvas2Image.saveAsJPEG(canvas)
+    });    
+});
+$(document).on('click', '#random-button-save', function(e){
+    e.preventDefault();
+    console.log('random-button-save');
+});
+$(document).on('click', '#random-button-rand', function(e){
+    e.preventDefault();
+    console.log('random-button-rand');
+});    
 
+    
