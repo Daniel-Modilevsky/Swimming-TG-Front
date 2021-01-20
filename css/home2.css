@@ -853,13 +853,44 @@ header form .search-button {
     margin-left: 43%;
 }
 
+#htmlToCanvas, #htmlToWord{
+    background-color: cornflowerblue;
+    color: aliceblue;
+    cursor: pointer;
+}
 #htmlToCanvas{
+    position: absolute;
+    margin-top: 40%;
+    margin-left: -4%;
+}
+#htmlToWord{
+    position: absolute;
+    margin-top: 35%;
+    margin-left: -4%;
+}
+
+#htmlToCanvas:hover, #htmlToWord:hover{
+    background-color: aliceblue;
+    color: cornflowerblue;
+    transition: 0.3s;
+}
+#htmlToCanvas .boxIcon, #htmlToWord .boxIcon{
+    color: aliceblue;
+    transition: 0.3s;
+}
+
+#htmlToCanvas:hover .boxIcon, #htmlToWord:hover .boxIcon{
+    color: cornflowerblue;
+}
+
+    
+/*
     display: block;
     margin-left: 15%;
     width: 70%;
     margin-bottom: 30px:
+*/
 }
-
 /*--------------------------------------------------------------
 # Home Page 
 --------------------------------------------------------------*/

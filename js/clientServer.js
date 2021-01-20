@@ -2,41 +2,8 @@
 /*jslint browser: true*/
 /*eslint no-console: "error"*/
 
-$(document).ready(function(){
-
-    $("#but_upload").click(function(){
-
-        var fd = new FormData();
-        var files = $('#file')[0].files;
-        
-        // Check file selected or not
-        if(files.length > 0 ){
-           fd.append('file',files[0]);
-
-           $.ajax({
-              url: 'upload.php',
-              type: 'post',
-              data: fd,
-              contentType: false,
-              processData: false,
-              success: function(response){
-                 if(response != 0){
-                    $("#img").attr("src",response); 
-                    $(".preview img").show(); // Display image element
-                 }else{
-                    alert('file not uploaded');
-                 }
-              },
-           });
-        }else{
-           alert("Please select a file.");
-        }
-    });
-});
-
-
 function postLogin(){
-    const formData = {
+    let formData = {
             'user_name' : $('input[name=user_name]').val(),
             'password': $('input[name=password]').val()
         };
@@ -133,7 +100,6 @@ async function Parseusername(){
         );
     }, 500);
 ;}
-
 function imageShow(){
     id = localStorage.getItem("UserId");
     image = "img/Unknown_person.jpg"
@@ -153,6 +119,7 @@ function imageShow(){
         }   
     });           
 }
+
 //=========EXCER============
 function showExcercises(){
     console.log(`https://swimmingtg.herokuapp.com/api/excercisies`);
@@ -279,7 +246,6 @@ function getExcerciseByStep(step){
     });
 }
 
-
 //=========LISTS============
 let warmList = []; 
 let mainList = []; 
@@ -288,7 +254,6 @@ let raceList = [];
 let excerciseisList = [];
 let totalDistance = 0;
 localStorage.setItem("Distance", parseInt(0));
-
 
 //=========LIST============
 function pushList(list, id){
@@ -319,8 +284,6 @@ function removeList(str){
         showFormExcercises(listName);
     }
 }
-
- 
 
 //=========EXCER=TO=LISTS============
 function chooseExcer(str){
@@ -489,7 +452,6 @@ async function postTrain(){
    
 }
 
-
 //=========Train=Show============
 function getTrain(){
     let id = localStorage.getItem('trainID');
@@ -498,7 +460,7 @@ function getTrain(){
         type: 'GET',
         success: function(train) {
            $('#Train').append(
-               '<img src="img/header-5.jpg" class="img-header">'+
+               '<img src="img/header-3.jpg" class="img-header">'+
                '<section class="train-header">'+
                '<h3>Train Name : '+ train.train.name +'</h3></section><section class="train-body">' +
                train.train.exercisies.forEach(excersice => {
@@ -533,7 +495,6 @@ function pushTrain(){
         }   
     });       
 }
-
 
 //=========Profile===============
 async function getUser(){
@@ -720,6 +681,96 @@ function postRandomTrain(data){
 
 }
 
+//=========WORD============
+function Export2Doc(element, filename = ''){
+    var preHtml = "<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset='utf-8'><title>Export HTML To Doc</title></head><body>";
+    var postHtml = "</body></html>";
+    var html = preHtml+document.getElementById(element).innerHTML+postHtml;
+
+    var css = ('\
+    <style>\
+    @page WordSection1{size: 841.95pt 595.35pt;mso-page-orientation: portrait;}\
+    .exer{display: flex; width:70%; margin-top: 2%; margin-left: 15%; background-color: whitesmoke; border: 1px solid gray; color: red}\
+    </style>\
+    ');
+    var blob = new Blob(['\ufeff', css + html], {
+        type: 'application/msword'
+    });
+    var url = 'data:application/vnd.ms-word;charset=utf-8,' + encodeURIComponent(html);
+    filename = filename?filename+'.doc':'document.doc';
+    var downloadLink = document.createElement("a");
+    document.body.appendChild(downloadLink);
+    if(navigator.msSaveOrOpenBlob ){
+        navigator.msSaveOrOpenBlob(blob, filename);
+    }else{
+        downloadLink.href = url;
+        downloadLink.download = filename;
+        downloadLink.click();
+    }
+    document.body.removeChild(downloadLink);
+}
+function getDocTrain(){
+    let id = localStorage.getItem('trainID');
+    $.ajax({
+        url: `http://localhost:8080/api/trains/${id}`,
+        type: 'GET',
+        success: function(train) {
+           $('#Train').append(
+               '<img src="img/header-5.jpg" class="img-header">'+
+               '<section class="train-header">'+
+               '<h3>Train Name : '+ train.train.name +'</h3></section><section class="train-body">' +
+               train.train.exercisies.forEach(excersice => {
+                    getDocExcercise('.train-body', excersice);
+               }) +
+               '</section><section class="train-footer"><label>Date: </label><span>'+ (train.train.date).substr(0,10) +'</span>'+
+               '<br><label class="center-lebel">Distance: </label><span> '+ train.train.totalDistance +'m</span>'+
+               '<img src="img/logo.png" class="right-img"></section></div>'
+           )     
+        },
+        error:function(){  
+           alert('Error - getMovie');
+           top.location.href="404.html"
+        }   
+    });           
+};
+function getDocExcercise(listName, id){
+    let str = `${id}, ${listName}`;
+    $.ajax({
+        url: `http://localhost:8080/api/excercisies/${id}`,
+        type: 'GET',
+        success: function(excercise) {
+           $(listName).append(
+                '<article class="exer hvr-underline-from-center"><aside class="left-excer">'+
+                '<label class="head-excer">Step</label> : <span class="head-excer">'+ excercise.excercise.step +'</span><br>' +
+                (excercise.excercise.tempo == 'Easy' ? '<label>Level</label> : <img src="https://img.icons8.com/ios-filled/30/26e07f/heart-with-pulse--v1.png"/><br>': '') +
+                    (excercise.excercise.tempo == 'Medium' ? '<label>Level</label> : <img src="https://img.icons8.com/ios-filled/30/CCCC00/heart-with-pulse--v1.png"/><br>': '') +
+                    (excercise.excercise.tempo == 'Hard' ? '<label>Level</label> : <img src="https://img.icons8.com/fluent/30/26e07f/heart-with-pulse.png"/><br>': '') +
+                     (excercise.excercise.break == 10 ? '<label>Break</label> : <img src="https://img.icons8.com/dotty/30/6495ED/forward-10.png"/><br>': '') +
+                     (excercise.excercise.break == 15 ? '<label>Break</label> : <img src="https://img.icons8.com/carbon-copy/36/6495ED/15-circled-c.png"/><br>': '') +
+                     (excercise.excercise.break == 20 ? '<label>Break</label> : <img src="https://img.icons8.com/carbon-copy/36/6495ED/20-circled-c.png"/><br>': '') +
+                     (excercise.excercise.break == 30 ? '<label>Break</label> : <img src="https://img.icons8.com/dotty/30/6495ED/forward-30.png"/><br>': '') +
+                     (excercise.excercise.break == 45 ? '<label>Break</label> : <img src="https://img.icons8.com/color/30/6495ED/45.png"/><br>': '') +
+                     (excercise.excercise.break == 60 ? '<label>Break</label> : <img src="https://img.icons8.com/ios/30/6495ED/last-60-sec.png"/><br>': '') +
+                    '</aside>'+
+                    '<aside class="midle-excer"><label>Mount</label> : <span>'+ excercise.excercise.count +' x '+ excercise.excercise.distance +'</span><br>' +
+                    '<label>Style</label> : <span>'+ excercise.excercise.multiple +'</span><br>' + 
+                    '<label style="color: red;">Details</label> : <span>'+ excercise.excercise.details +'</span></aside><br>' +
+                    '<aside class="right-excer">' + 
+                    (excercise.excercise.isKickBoard == true ? '<img src="https://img.icons8.com/fluent/40/000000/buoyancy-compensator.png"/><br>': '') +
+                    (excercise.excercise.isFins == true ? '<img src="https://img.icons8.com/officel/40/000000/flippers.png"/><br>': '') +
+                    (excercise.excercise.isPullbuoy == true ? '<img src="https://img.icons8.com/ultraviolet/40/000000/float.png"/><br>': '') +
+                    (excercise.excercise.isHandPaddles == true ? '<img src="https://img.icons8.com/wired/40/4a90e2/hand.png"/><br>': '')+
+                    '<br>' +
+                    '<br>' +
+                '</aside><button class="plus btn btn-danger" onClick="removeList(\'' + str + '\')"><i class="bx bx-minus"></i>' + '</button>'
+                );
+        },
+        error:function(){  
+           alert('Error - getMovie');
+           top.location.href="404.html"
+        }   
+    });               
+}
 
 //=========LISTENER============
 $(document).on('click', '#login-button', function(e){
@@ -776,6 +827,11 @@ $(document).on('click', '#htmlToCanvas', function(e){
     html2canvas(div).then(  function (canvas) { 
         Canvas2Image.saveAsJPEG(canvas)
     });    
+});
+$(document).on('click', '#htmlToWord', function(e){
+    e.preventDefault();
+    let div = document.getElementById('Train'); 
+    Export2Doc(div, 'SwimmingDoc');  
 });
 $(document).on('click', '#random-button-save', function(e){
     e.preventDefault();
