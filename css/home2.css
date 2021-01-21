@@ -853,19 +853,24 @@ header form .search-button {
     margin-left: 43%;
 }
 
-#htmlToCanvas, #htmlToWord{
+#htmlToCanvas, #htmlToWord, #htmlToCanvasRand{
     background-color: cornflowerblue;
     color: aliceblue;
     cursor: pointer;
 }
 #htmlToCanvas{
     position: absolute;
-    margin-top: 40%;
+    margin-top: 50%;
     margin-left: -4%;
 }
 #htmlToWord{
     position: absolute;
-    margin-top: 35%;
+    margin-top: 45%;
+    margin-left: -4%;
+}
+#htmlToCanvasRand{
+    position: absolute;
+    margin-top: 50%;
     margin-left: -4%;
 }
 
@@ -884,17 +889,12 @@ header form .search-button {
 }
 
     
-/*
-    display: block;
-    margin-left: 15%;
-    width: 70%;
-    margin-bottom: 30px:
-*/
-}
 /*--------------------------------------------------------------
 # Home Page 
 --------------------------------------------------------------*/
-video{
+.myMain #video{
+    margin-top: 1%;
+    display: block;
     width: 80%;
     margin-left: 10%;
     height: auto;

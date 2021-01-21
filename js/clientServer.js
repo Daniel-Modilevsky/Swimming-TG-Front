@@ -114,7 +114,7 @@ function imageShow(){
             }
         },
         error:function(){  
-           alert('Error - get User');
+           ////alert('Error - get User');
            top.location.href="404.html"
         }   
     });           
@@ -157,7 +157,7 @@ function showExcercises(){
             });
         },
         error:function(){  
-           alert('Error - showExcercises');
+           //alert('Error - showExcercises');
            top.location.href="404.html";
         }   
     });
@@ -240,7 +240,7 @@ function getExcerciseByStep(step){
             }); 
         },
         error:function(){  
-           alert('Error - showExcercises');
+           //alert('Error - showExcercises');
            top.location.href="404.html";
         }   
     });
@@ -322,7 +322,7 @@ function chooseExcer(str){
                 );
         },
         error:function(){  
-           alert('Error - getMovie');
+           //alert('Error - getMovie');
            top.location.href="404.html"
         }   
     });
@@ -358,7 +358,7 @@ function getExcercise(listName, id){
                 );
         },
         error:function(){  
-           alert('Error - getMovie');
+           //alert('Error - getMovie');
            top.location.href="404.html"
         }   
     });               
@@ -396,12 +396,12 @@ async function distance(excerciseisList){
                 let dist = excercise.excercise.distance;
                 let mount = coun * dist;
                 let oldDist = parseInt(localStorage.getItem("Distance")) + parseInt(mount);
-                //alert(oldDist);
+                ////alert(oldDist);
                 localStorage.setItem("Distance", oldDist);
                 //totalDistance = totalDistance + mount;
             },
             error:function(){  
-               alert('Error - distance');
+               //alert('Error - distance');
                top.location.href="404.html"
             }      
         });
@@ -420,6 +420,8 @@ function collectTrainExcer(excerciseisList, warmList, mainList, downList, raceLi
 async function postTrain(){   
     let exercisies = await collectTrainExcer(excerciseisList, warmList, mainList, downList, raceList); 
     await distance(exercisies);
+    console.log(exercisies);
+    //alert(exercisies.length)
     let formData;
     setTimeout(function(){ 
         let myTotalDistance = parseInt(localStorage.getItem("Distance"));
@@ -446,7 +448,7 @@ async function postTrain(){
     })
     }, 1000);
     let myTotalDistance = parseInt(localStorage.getItem("Distance"));
-    //alert(myTotalDistance);
+    ////alert(myTotalDistance);
     //localStorage.setItem("Distance", parseInt(0));
     
    
@@ -472,7 +474,7 @@ function getTrain(){
            )     
         },
         error:function(){  
-           alert('Error - getMovie');
+           //alert('Error - getMovie');
            //top.location.href="404.html"
         }   
     });           
@@ -490,7 +492,7 @@ function pushTrain(){
            console.log(user);
         },
         error:function(){  
-           alert('Error - pushTrain');
+           //alert('Error - pushTrain');
            top.location.href="404.html"
         }   
     });       
@@ -529,7 +531,7 @@ async function getUser(){
                 );
             },
             error:function(){  
-               alert('Error - get User');
+               //alert('Error - get User');
                top.location.href="404.html"
             }   
         });     
@@ -552,7 +554,7 @@ function getUserTrains(){
                     type: 'GET',
                     success: function(train) {
                         $('#my-profile-list').append(
-                            '<article class="hvr-rectangle-out">'+
+                            '<article class="hvr-rectangle-out" onClick="goToShow(\'' + train.train_id + '\')>'+
                             '<img src="img/unknown.png">'+
                             '<section><label>Name: </label><span>'+train.train.name+'</span></section>'+
                             '<section><label>Excercisies: </label><span>'+ train.train.exercisies.length +'</span></section>'+
@@ -565,7 +567,7 @@ function getUserTrains(){
                     },
                     error:function(err){  
                         console.log(`Error - get Train ${trainId} = {err}`);
-                       //alert(`Error - get Train ${trainId}`);
+                       ////alert(`Error - get Train ${trainId}`);
                        //top.location.href="404.html"
                     }   
                 });           
@@ -581,11 +583,15 @@ function getUserTrains(){
             }, 500);
         },
         error:function(){  
-           alert('Error - get User');
+           //alert('Error - get User');
            top.location.href="404.html"
         }   
     });     
 }
+function goToShow(id){
+    
+}
+
 
 //=========Random===============
 function postRandom(){
@@ -621,7 +627,10 @@ function showRandomTrain(data){
         '<section class="train-header"><h3>Train Name : Random Train</h3></section>'
     )
     excercises.forEach(excersice => {
-            results.push(excersice._id.toString());
+            let one = [];
+            one.push(excersice._id);
+            console.log(one.length);
+            results.push(one);
             $('#train-show-random').append(
             '<article class="exer hvr-underline-from-center"><aside class="left-excer">'+
             '<label class="head-excer">Step</label> : <span class="head-excer">'+ excersice.step +'</span><br>' +
@@ -645,17 +654,28 @@ function showRandomTrain(data){
                 (excersice.isHandPaddles == true ? '<img src="https://img.icons8.com/wired/40/4a90e2/hand.png"/>': '')+
                 '</aside></article>'
         )});
+            console.log(results.length);
+            console.log(results);
            $('#train-show-random').append(            
             '<section class="train-footer"><label class="center-lebel">Distance: </label><span> '+        localStorage.getItem('distanceTrain')+'m</span>'+               
             '<img src="img/logo.png" class="right-img"></section><div class ="footer-form-random">'+
             '<button class="btn btn-success" onClick="postRandomTrain(\'' + results + '\')">Save</button>'+
-            '<button class="btn btn-secondary" onClick="postRandomTrain(\'' + results + '\')">Rand Again</button></div></div>'
+            '<button class="btn btn-secondary" onClick="randAgain(\'' + localStorage.getItem('distanceTrain') + '\')">Rand Again</button></div></div>'
     )
 }
 function postRandomTrain(data){   
     let formData;
+    json = data.toJSON();
+    let exers = [];
+//    data.forEach(element => {
+//        console.log(element);
+//    });
+    console.log(data.length);
+    console.log(json);
+    var res = data.split(",");
+    console.log(res);
     console.log(data);
-    alert(data)
+    //alert(res)
     let myTotalDistance = parseInt(localStorage.getItem("Distance"));
     formData = {
         'name' : 'Random Train',
@@ -680,20 +700,38 @@ function postRandomTrain(data){
     })    
 
 }
+function randAgain(distance){
+    let equipments2 = document.getElementsByClassName('eqip');
+    const formData = {
+            'distance': distance,
+            'isFins': equipments2[0].checked,
+            'isPullbuoy': equipments2[1].checked,
+            'isHandPaddles':  equipments2[2].checked,
+            'isKickBoard': equipments2[3].checked
+        };
+        localStorage.setItem('distanceTrain',formData.distance )
+        $.ajax({
+            url: 'https://swimmingtg.herokuapp.com/api/random',
+            type: 'POST', 
+            data:formData,
+            cache: false,
+            dataType : 'json',
+            success: function(data) {
+                showRandomTrain(data);
+            },  
+            error:function(message){  
+                $('.error-box').append(`<h2>errors</h2><p>`+message+`</p>`);
+            }
+        })
+}
 
 //=========WORD============
 function Export2Doc(element, filename = ''){
     var preHtml = "<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset='utf-8'><title>Export HTML To Doc</title></head><body>";
     var postHtml = "</body></html>";
-    var html = preHtml+document.getElementById(element).innerHTML+postHtml;
-
-    var css = ('\
-    <style>\
-    @page WordSection1{size: 841.95pt 595.35pt;mso-page-orientation: portrait;}\
-    .exer{display: flex; width:70%; margin-top: 2%; margin-left: 15%; background-color: whitesmoke; border: 1px solid gray; color: red}\
-    </style>\
-    ');
-    var blob = new Blob(['\ufeff', css + html], {
+    console.log(element);
+    var html = preHtml+element.innerHTML+postHtml;
+    var blob = new Blob(['\ufeff', html], {
         type: 'application/msword'
     });
     var url = 'data:application/vnd.ms-word;charset=utf-8,' + encodeURIComponent(html);
@@ -728,7 +766,7 @@ function getDocTrain(){
            )     
         },
         error:function(){  
-           alert('Error - getMovie');
+           //alert('Error - getMovie');
            top.location.href="404.html"
         }   
     });           
@@ -766,7 +804,7 @@ function getDocExcercise(listName, id){
                 );
         },
         error:function(){  
-           alert('Error - getMovie');
+           //alert('Error - getMovie');
            top.location.href="404.html"
         }   
     });               
@@ -841,5 +879,11 @@ $(document).on('click', '#random-button-rand', function(e){
     e.preventDefault();
     console.log('random-button-rand');
 });    
-
+$(document).on('click', '#htmlToCanvasRand', function(e){
+    e.preventDefault();
+    let div = document.getElementById('train-show-random'); 
+    html2canvas(div).then(  function (canvas) { 
+        Canvas2Image.saveAsJPEG(canvas)
+    });    
+});
     
